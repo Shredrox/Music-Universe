@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: #0d2041;
+}
+
+a{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:hover{
+    color: lightblue;
+}
+
+.headerBar{
+    background-color: #050e1d;
+    margin: 0;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.navigation{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.navList{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+li{
+    display: flex;
+    margin-right: 20px;
+}
+
+.homeSection{
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.homeImage{
+    width: 100%;
+}
+
+.homeH1{
+    position: absolute;
+    top: 40px;
+    left: 46px;
+    font-size: 4vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-shadow:1px 1px 1px #00c6ff, 1px 1px 7px #00c6ff;
+}
