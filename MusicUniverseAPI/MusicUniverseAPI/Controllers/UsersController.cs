@@ -45,6 +45,7 @@ namespace MusicUniverseAPI.Controllers
             user.Email = email;
             user.Password = password;
             user.Name = name;
+            user.Role = "Customer";
             await _userDbContext.Users.AddAsync(user);
             await _userDbContext.SaveChangesAsync();
 
