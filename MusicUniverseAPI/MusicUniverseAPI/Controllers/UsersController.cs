@@ -10,12 +10,11 @@ namespace MusicUniverseAPI.Controllers
     public class UsersController : Controller
     {
         private readonly UserDbContext _userDbContext;
-        private int LatestID;
+        private User _activeUser;
 
         public UsersController(UserDbContext context)
         {
             _userDbContext = context;
-            LatestID = 0;
         }
 
         [HttpGet]
@@ -25,9 +24,9 @@ namespace MusicUniverseAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id:Guid}")]
         [ActionName("GetUserById")]
-        public async Task<IActionResult> GetUserById([FromRoute] int id)
+        public async Task<IActionResult> GetUserById([FromRoute] Guid id)
         {
             var user = await _userDbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (user == null)
@@ -39,9 +38,13 @@ namespace MusicUniverseAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterUser(User user)
+        public async Task<IActionResult> Register(string name, string email, string password)
         {
-            user.Id = LatestID++;
+            User user = new User();
+            user.Id = Guid.NewGuid();
+            user.Email = email;
+            user.Password = password;
+            user.Name = name;
             await _userDbContext.Users.AddAsync(user);
             await _userDbContext.SaveChangesAsync();
 
@@ -49,14 +52,16 @@ namespace MusicUniverseAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{name}/{email}/{password}")]
-        public async Task<IActionResult> Login([FromRoute] string name, string email, string password)
+        [Route("{email}/{password}")]
+        public async Task<IActionResult> Login([FromRoute] string email, string password)
         {
-            var user = await _userDbContext.Users.FirstOrDefaultAsync(x => x.Name == name && x.Email == email && x.Password == password);
+            var user = await _userDbContext.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
             if(user == null)
             {
                 return NotFound();
             }
+
+            _activeUser = user;
 
             return Ok(user);
         }
