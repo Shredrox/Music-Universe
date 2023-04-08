@@ -47,5 +47,18 @@ namespace MusicUniverseAPI.Controllers
 
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
+
+        [HttpGet]
+        [Route("{name}/{email}/{password}")]
+        public async Task<IActionResult> Login([FromRoute] string name, string email, string password)
+        {
+            var user = await _userDbContext.Users.FirstOrDefaultAsync(x => x.Name == name && x.Email == email && x.Password == password);
+            if(user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
     }
 }
