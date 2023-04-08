@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MusicUniverseAPI.Data;
+
 namespace MusicUniverseAPI
 {
     public class Program
@@ -11,6 +14,9 @@ namespace MusicUniverseAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<UserDbContext>(options => options.UseSqlServer(
+                builder.Configuration.GetConnectionString("UsersDbConnectionString")));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -23,7 +29,6 @@ namespace MusicUniverseAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
