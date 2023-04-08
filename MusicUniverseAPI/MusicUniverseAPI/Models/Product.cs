@@ -10,8 +10,10 @@ namespace MusicUniverseAPI.Models
         [Column(TypeName = "decimal(18,4)")]
         public decimal Price { get; set; }
         public string Type { get; set; }
+        public string Brand { get; set; }
         public string Category { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public List<Cart> Carts { get; set; }
     }
 }

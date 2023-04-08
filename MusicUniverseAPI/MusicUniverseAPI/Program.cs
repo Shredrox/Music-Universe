@@ -16,11 +16,8 @@ namespace MusicUniverseAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<UserDbContext>(options => options.UseSqlServer(
-                builder.Configuration.GetConnectionString("UsersDbConnectionString")));
-
-            builder.Services.AddDbContext<ProductDbContext>(options => options.UseSqlServer(
-                builder.Configuration.GetConnectionString("ProductsDbConnectionString")));
+            builder.Services.AddDbContext<ShopDbContext>(options => options.UseSqlServer(
+                builder.Configuration.GetConnectionString("ShopDbConnectionString")));
 
             var app = builder.Build();
 
