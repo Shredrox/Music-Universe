@@ -9,18 +9,18 @@ namespace MusicUniverseAPI.Controllers
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        private readonly UserDbContext _userDbContext;
+        private readonly ShopDbContext _context;
         private User _activeUser;
 
-        public UsersController(UserDbContext context)
+        public UsersController(ShopDbContext context)
         {
-            _userDbContext = context;
+            _context = context;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            return Ok(await _userDbContext.Users.ToListAsync());
+            return Ok(await _context.Users.ToListAsync());
         }
 
         [HttpGet]
@@ -28,7 +28,7 @@ namespace MusicUniverseAPI.Controllers
         [ActionName("GetUserById")]
         public async Task<IActionResult> GetUserById([FromRoute] Guid id)
         {
-            var user = await _userDbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -46,8 +46,9 @@ namespace MusicUniverseAPI.Controllers
             user.Password = password;
             user.Name = name;
             user.Role = "Customer";
-            await _userDbContext.Users.AddAsync(user);
-            await _userDbContext.SaveChangesAsync();
+            user.Cart = new Cart();
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
@@ -56,7 +57,7 @@ namespace MusicUniverseAPI.Controllers
         [Route("{email}/{password}")]
         public async Task<IActionResult> Login([FromRoute] string email, string password)
         {
-            var user = await _userDbContext.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
             if(user == null)
             {
                 return NotFound();

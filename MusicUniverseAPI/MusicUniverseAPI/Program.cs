@@ -21,16 +21,6 @@ namespace MusicUniverseAPI
 
             var app = builder.Build();
 
-            var options = new DbContextOptionsBuilder<UserDbContext>()
-                .UseSqlServer(builder.Configuration.GetConnectionString("UsersDbConnectionString"))
-                .Options;
-
-            using (var context = new UserDbContext(options))
-            {
-                context.Database.EnsureCreated(); 
-                AddAdmin(context); 
-            }
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -45,24 +35,6 @@ namespace MusicUniverseAPI
             app.MapControllers();
 
             app.Run();
-        }
-
-        public static void AddAdmin(UserDbContext context)
-        {
-            User admin = new User();
-            admin.Id = Guid.NewGuid();
-            admin.Name = "Meesho";
-            admin.Role = "Admin";
-            admin.Password = "AdminPassword";
-            admin.Email = "AdminEmail@email";
-
-            if (context.Users.FirstOrDefaultAsync(x => x.Id == admin.Id) != null)
-            {
-                return;
-            }
-
-            context.Users.Add(admin);
-            context.SaveChanges();
         }
     }
 }

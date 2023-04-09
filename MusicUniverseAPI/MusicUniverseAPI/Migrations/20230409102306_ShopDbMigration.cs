@@ -6,23 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MusicUniverseAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class ShopDbMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Carts",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Carts", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
@@ -30,6 +18,7 @@ namespace MusicUniverseAPI.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -49,16 +38,27 @@ namespace MusicUniverseAPI.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CartId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Carts_CartId",
-                        column: x => x.CartId,
-                        principalTable: "Carts",
+                        name: "FK_Carts_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -93,9 +93,9 @@ namespace MusicUniverseAPI.Migrations
                 column: "CartsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_CartId",
-                table: "Users",
-                column: "CartId",
+                name: "IX_Carts_UserId",
+                table: "Carts",
+                column: "UserId",
                 unique: true);
         }
 
@@ -106,13 +106,13 @@ namespace MusicUniverseAPI.Migrations
                 name: "CartProduct");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Carts");
+                name: "Users");
         }
     }
 }

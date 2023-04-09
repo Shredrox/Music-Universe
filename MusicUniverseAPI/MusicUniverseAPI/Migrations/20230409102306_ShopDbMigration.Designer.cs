@@ -12,8 +12,8 @@ using MusicUniverseAPI.Data;
 namespace MusicUniverseAPI.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20230408171014_Initial")]
-    partial class Initial
+    [Migration("20230409102306_ShopDbMigration")]
+    partial class ShopDbMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,9 @@ namespace MusicUniverseAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
                     b.ToTable("Carts");
                 });
 
@@ -83,6 +86,9 @@ namespace MusicUniverseAPI.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,4)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -96,9 +102,6 @@ namespace MusicUniverseAPI.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CartId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -119,9 +122,6 @@ namespace MusicUniverseAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CartId")
-                        .IsUnique();
-
                     b.ToTable("Users");
                 });
 
@@ -140,20 +140,20 @@ namespace MusicUniverseAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MusicUniverseAPI.Models.User", b =>
+            modelBuilder.Entity("MusicUniverseAPI.Models.Cart", b =>
                 {
-                    b.HasOne("MusicUniverseAPI.Models.Cart", "Cart")
-                        .WithOne("User")
-                        .HasForeignKey("MusicUniverseAPI.Models.User", "CartId")
+                    b.HasOne("MusicUniverseAPI.Models.User", "User")
+                        .WithOne("Cart")
+                        .HasForeignKey("MusicUniverseAPI.Models.Cart", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cart");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MusicUniverseAPI.Models.Cart", b =>
+            modelBuilder.Entity("MusicUniverseAPI.Models.User", b =>
                 {
-                    b.Navigation("User")
+                    b.Navigation("Cart")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

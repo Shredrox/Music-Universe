@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace MusicUniverseAPI.Models
 {
@@ -9,7 +10,7 @@ namespace MusicUniverseAPI.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+        [JsonIgnore]
         public Cart Cart { get; set; }
-        public Guid CartId { get; set; }
     }
 }
