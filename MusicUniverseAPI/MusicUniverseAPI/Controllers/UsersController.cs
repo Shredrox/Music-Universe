@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using MusicUniverseAPI.Data;
 using MusicUniverseAPI.Models;
 using MusicUniverseAPI.Models.DTOs;
-using System.Net;
 
 namespace MusicUniverseAPI.Controllers
 {
