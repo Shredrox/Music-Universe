@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="email">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <button type="submit" onclick="submitData()">Submit</button>
+            <script>
+
+
+                function submitData() {
+                  const name = document.getElementById('name').value;
+                  const email = document.getElementById('email').value;
+                  const password = document.getElementById('password').value;
+          
+                  const data = {
+                    name: name,
+                    email: email,
+                    password: password
+                  };
+          
+                  fetch('https://localhost:7182/api/Users', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                  })
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log(data); 
+                    })
+                    .catch(error => console.error(error)); 
+                }
+              </script>
+        </form>
+    </div>
+</body>
+</html>
