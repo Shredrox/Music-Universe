@@ -12,7 +12,7 @@ using MusicUniverseAPI.Data;
 namespace MusicUniverseAPI.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20230409102306_ShopDbMigration")]
+    [Migration("20230411073754_ShopDbMigration")]
     partial class ShopDbMigration
     {
         /// <inheritdoc />
