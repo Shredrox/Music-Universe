@@ -4,15 +4,15 @@ import { ProductCard } from "./ProductCard";
 export function ProductsShowcase(){
     return (
         <div>
-            <div class="productsSliderSection">
-            <div class="productsSlider1">
-                <button class="sliderBtn" >
+            <div className="productsSliderSection">
+            <div className="productsSlider1">
+                <button className="sliderBtn" >
                     
                 </button>
                 <ProductCard/>
                 <ProductCard/>
                 <ProductCard/>
-                <button class="sliderBtn">
+                <button className="sliderBtn">
                     
                 </button>
                 

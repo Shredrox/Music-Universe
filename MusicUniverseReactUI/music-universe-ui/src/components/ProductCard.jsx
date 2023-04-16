@@ -2,11 +2,11 @@ import React from "react";
 
 export function ProductCard(){
     return (
-        <div class="productCard">
-            <div class="product">
+        <div className="productCard">
+            <div className="product">
                         
             </div>
-            <p class="productName">
+            <p className="productName">
                 Guitar 1
             </p>
         </div>

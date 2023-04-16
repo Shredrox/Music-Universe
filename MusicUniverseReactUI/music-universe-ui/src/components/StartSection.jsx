@@ -5,17 +5,17 @@ import featuredProductImage from '../assets/mishaGuitar.png';
 export function StartSection(){
     return (
         <div>
-            <div class="homeSection">
-                <img class="homeImage" src={homeImage} alt="homeImage"/>
-                <div class="homeTextContainer">
-                    <h1 class="homeH1">MUSIC UNIVERSE</h1>
-                    <h2 class="homeH2">- everything about music in one place -</h2>
+            <div className="homeSection">
+                <img className="homeImage" src={homeImage} alt="homeImage"/>
+                <div className="homeTextContainer">
+                    <h1 className="homeH1">MUSIC UNIVERSE</h1>
+                    <h2 className="homeH2">- everything about music in one place -</h2>
                 </div>
             </div>
-             <div class="featuredProductSection">
-                <div class="featuredProduct">
-                    <img class="featuredProductImg" src={featuredProductImage} alt="featuredProduct"/>
-                    <p class="featuredProductText">
+             <div className="featuredProductSection">
+                <div className="featuredProduct">
+                    <img className="featuredProductImg" src={featuredProductImage} alt="featuredProduct"/>
+                    <p className="featuredProductText">
                         The Jackson Pro Series Signature Misha Mansoor Juggernaut HT6 
                         is a hard-rocking, djent-ready axe at a great price. 
                         Designed in conjunction with Periphery’s Misha Mansoor, 
