@@ -209,3 +209,27 @@ li{
     align-items: center;
 }
 
+.loginImage{
+    width: 100%;
+}
+
+.loginContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.login{
+    position: absolute;
+    background-color: #050e1d;
+    padding: 15px;
+    top: 150px;
+    border-radius: 20px;
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}

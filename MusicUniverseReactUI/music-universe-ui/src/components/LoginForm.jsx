@@ -24,7 +24,7 @@ export function LoginForm(){
     }
 
     return (
-        <form>
+        <form className="login">
             <label htmlFor="name">Name: </label>
             <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/><br/>
             <label htmlFor="email">Email: </label>

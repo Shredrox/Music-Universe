@@ -1,7 +1,13 @@
 import React from "react";
+import background from '../assets/loginBackground.png';
+import { LoginForm } from "../components/LoginForm";
 
 export function LoginRegister(){
     return (
-    <h1>test </h1>
+        <div className="loginContainer">
+            <LoginForm/>
+            <img className="loginImage" src={background} alt="" />
+        </div>
+        
     )
 }
