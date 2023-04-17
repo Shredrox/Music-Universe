@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MusicUniverseAPI.Data;
 using MusicUniverseAPI.Models;
 using MusicUniverseAPI.Models.DTOs;
+using System.Security.Claims;
 
 namespace MusicUniverseAPI.Controllers
 {
@@ -11,7 +13,7 @@ namespace MusicUniverseAPI.Controllers
     public class UsersController : Controller
     {
         private readonly ShopDbContext _context;
-        private User _activeUser;
+        private static User _activeUser = new User();
 
         public UsersController(ShopDbContext context)
         {
@@ -37,8 +39,7 @@ namespace MusicUniverseAPI.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
-        [ActionName("Register")]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] UserDto data)
         {
             User user = new User();
@@ -51,13 +52,13 @@ namespace MusicUniverseAPI.Controllers
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+            return Ok(user);
         }
 
-        [HttpGet("{email}/{password}")]
-        public async Task<IActionResult> Login([FromRoute] string email, string password)
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto data)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == data.Email && x.Password == data.Password);
             if(user == null)
             {
                 return NotFound();
@@ -66,6 +67,18 @@ namespace MusicUniverseAPI.Controllers
             _activeUser = user;
 
             return Ok(user);
+        }
+
+        private string CreateToken(User user)
+        {
+            List<Claim> claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name, user.Name)
+            };
+
+            
+
+            return string.Empty;
         }
 
         [HttpPut("{id}")]
