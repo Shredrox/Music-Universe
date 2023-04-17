@@ -6,7 +6,6 @@ export function StartSection(){
     return (
         <div>
             <div className="homeSection">
-                <img className="homeImage" src={homeImage} alt="homeImage"/>
                 <div className="homeTextContainer">
                     <h1 className="homeH1">MUSIC UNIVERSE</h1>
                     <h2 className="homeH2">- everything about music in one place -</h2>
