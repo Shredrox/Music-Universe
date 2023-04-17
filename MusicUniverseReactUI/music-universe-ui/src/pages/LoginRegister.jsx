@@ -6,7 +6,7 @@ export function LoginRegister(){
     return (
         <div className="loginContainer">
             <LoginForm/>
-            <img className="loginImage" src={background} alt="" />
+            <img className="loginImage" alt="" />
         </div>
         
     )
