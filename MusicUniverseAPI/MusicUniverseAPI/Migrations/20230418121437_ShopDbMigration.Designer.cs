@@ -12,7 +12,7 @@ using MusicUniverseAPI.Data;
 namespace MusicUniverseAPI.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20230411073754_ShopDbMigration")]
+    [Migration("20230418121437_ShopDbMigration")]
     partial class ShopDbMigration
     {
         /// <inheritdoc />
@@ -107,6 +107,9 @@ namespace MusicUniverseAPI.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()

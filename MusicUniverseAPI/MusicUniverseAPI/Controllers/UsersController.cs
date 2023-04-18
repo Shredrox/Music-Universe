@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using MusicUniverseAPI.Data;
 using MusicUniverseAPI.Models;
 using MusicUniverseAPI.Models.DTOs;
@@ -49,6 +48,7 @@ namespace MusicUniverseAPI.Controllers
             user.Name = data.Name;
             user.Role = "Customer";
             user.Cart = new Cart();
+            user.IsActive = true;
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
