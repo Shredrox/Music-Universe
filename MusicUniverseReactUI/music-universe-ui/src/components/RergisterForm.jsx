@@ -14,7 +14,7 @@ export function RegisterForm(){
           password: password
         };
 
-        Axios.post('https://localhost:7182/api/Users', data)
+        Axios.post('https://localhost:7182/api/Users/Register', data)
         .then(response => {
             console.log(response.data);
         })
