@@ -125,6 +125,7 @@ li{
 .featuredProduct{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 20rem;
     width: 80%;
     margin-left: 2rem;
@@ -147,12 +148,12 @@ li{
     margin: 10px;
     width: 100%;
     height: 100%;
-    font-size: 1.2vw;
+    font-size: 1.6vw;
 }
 
 .productsSliderSection{
     background-color: #050e1d;
-    height: 600px;
+    height: 700px;
 }
 
 .productsSlider1{
