@@ -17,6 +17,18 @@ export function ProductsShowcase(){
                 </button>
                 
             </div>
+            <div className="productsSlider1">
+                <button className="sliderBtn" >
+                    
+                </button>
+                <ProductCard/>
+                <ProductCard/>
+                <ProductCard/>
+                <button className="sliderBtn">
+                    
+                </button>
+                
+            </div>
         </div>
         </div>
     )
