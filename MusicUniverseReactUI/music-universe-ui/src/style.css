@@ -193,7 +193,7 @@ li{
 .productCard{
     background-color: #0d233b;
     height: 280px;
-    width: 28vw;
+    width: 24rem;
     border-radius: 6px;
     display: flex;
     justify-content: center;
@@ -216,6 +216,10 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.carousel{
+    margin-bottom: 1rem;
 }
 
 .loginImage{

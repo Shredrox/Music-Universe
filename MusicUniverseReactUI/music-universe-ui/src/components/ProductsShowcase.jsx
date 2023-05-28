@@ -1,35 +1,47 @@
 import React from "react";
 import { ProductCard } from "./ProductCard";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export function ProductsShowcase(){
+    const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 3
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
+
     return (
         <div>
             <div className="productsSliderSection">
-            <div className="productsSlider1">
-                <button className="sliderBtn" >
-                    
-                </button>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <button className="sliderBtn">
-                    
-                </button>
-                
+                <Carousel className="carousel" responsive={responsive}>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                </Carousel>
+                <Carousel responsive={responsive}>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                </Carousel>
             </div>
-            <div className="productsSlider1">
-                <button className="sliderBtn" >
-                    
-                </button>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <button className="sliderBtn">
-                    
-                </button>
-                
-            </div>
-        </div>
         </div>
     )
 }
