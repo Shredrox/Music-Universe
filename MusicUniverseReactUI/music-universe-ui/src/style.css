@@ -113,6 +113,7 @@ li{
     font-family: 'Nunito', sans-serif;
 }
 
+/*products section*/
 .featuredProductSection{
     background-color: #0f1225;
     height: 400px;
@@ -130,7 +131,7 @@ li{
     width: 80%;
     margin-left: 2rem;
     margin-right: 2rem;
-    border-radius: 6px;
+    border-radius: 1.5rem;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(4,12,33,1) 0%, rgba(72,27,30,1) 100%); 
 }
@@ -154,6 +155,10 @@ li{
 .productsSliderSection{
     background-color: #050e1d;
     height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 .productsSlider1{
@@ -193,8 +198,8 @@ li{
 .productCard{
     background-color: #0d233b;
     height: 280px;
-    width: 24rem;
-    border-radius: 6px;
+    width: 22rem;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -218,8 +223,17 @@ li{
     align-items: center;
 }
 
+.product-slider{
+    margin: 0 2rem 0 2rem;
+    width: 80%;
+}
+
 .carousel{
     margin-bottom: 1rem;
+}
+
+.carouselItem{
+    max-width: fit-content;
 }
 
 .loginImage{
