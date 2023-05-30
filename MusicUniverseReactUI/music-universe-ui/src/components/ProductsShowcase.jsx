@@ -2,6 +2,7 @@ import React from "react";
 import { ProductCard } from "./ProductCard";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Link } from "react-router-dom";
 
 export function ProductsShowcase(){
     const responsive = {
@@ -52,6 +53,10 @@ export function ProductsShowcase(){
                   </Carousel>
               
               </div>
+            </div>
+
+            <div className="catalog-link-container">
+              <Link className="catalog-link" to="/catalog">// Browse the Catalog</Link>
             </div>
         </div>
     )
