@@ -24,7 +24,7 @@ export function RegisterForm(){
     }
 
     return (
-        <form className="login">
+        <form className="register">
             REGISTER
             <label className='form-text' htmlFor="name">Name: </label>
             <input className='input' type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/><br/>
@@ -34,6 +34,7 @@ export function RegisterForm(){
             <input className='input' type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
             <button className='glow-on-hover' type="submit" onClick={submitData}>Sign Up</button>
             <span>Already have an account? Login bro</span>
+            <span>Forgor password? Remember bro</span>
         </form>
             
     )

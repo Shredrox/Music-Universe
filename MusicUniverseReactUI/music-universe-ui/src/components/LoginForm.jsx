@@ -24,9 +24,10 @@ export function LoginForm(){
 
     return (
         <form className="login">
-            <label htmlFor="email">Email: </label>
+            LOGIN
+            <label className='form-text' htmlFor="email">Email: </label>
             <input className='input' type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
-            <label htmlFor="email">Password: </label>
+            <label className='form-text' htmlFor="email">Password: </label>
             <input className='input' type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
             <button className='glow-on-hover' type="submit" onClick={submitData}>Log In</button><br/><br/><br/>
         </form>
