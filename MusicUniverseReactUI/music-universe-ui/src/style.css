@@ -555,6 +555,7 @@ li{
 }
 
 #catalog-container{
+    display: flex;
     height: 1000px;
     width: 80%;
     padding: 2rem;
@@ -563,13 +564,22 @@ li{
 }
 
 #categories-container{
-    width: 200px;
+    width: 20%;
     display: flex;
     justify-content: center;
+    margin-right: 5rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 60%;
     background-color: #0d233b;
     color: white;
     padding: 1rem;
     border-radius: 0.5rem;
+}
+
+.catalog-products-container{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 20px;
 }
