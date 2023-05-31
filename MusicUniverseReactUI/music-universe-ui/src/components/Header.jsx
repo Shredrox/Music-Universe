@@ -25,8 +25,20 @@ export function Header(){
         <header className="headerBar">
             <nav className="navigation">
                 <ul className="navList">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/catalog">Catalog</Link></li>
+                    <li>
+                        <Link to="/">
+                            <button className="nav-button" role="button">
+                                Home
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/catalog">
+                            <button className="nav-button" role="button">
+                                Catalog
+                            </button>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
 
