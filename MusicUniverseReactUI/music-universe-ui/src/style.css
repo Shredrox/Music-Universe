@@ -564,10 +564,10 @@ li{
 }
 
 #categories-container{
-    width: 20%;
+    width: 15%;
     display: flex;
     justify-content: center;
-    margin-right: 5rem;
+    margin-right: 2rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 60%;
     background-color: #0d233b;
@@ -578,7 +578,7 @@ li{
 
 .catalog-products-container{
     display: grid;
-    width: 80%;
+    width: 85%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(7, 1fr);
     gap: 20px;
@@ -586,14 +586,22 @@ li{
 
 .catalog-product{
     background-color: #0d233b;
-    height: 280px;
+    height: 300px;
     width: 400px;
     border-radius: 1rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
+    padding: 1rem 0;
+    transition: 0.2s ease-in-out;
+}
+
+.catalog-product:hover{
+    transition: 0.2s ease-in-out;
+    transform: scale(1.02);
+    background: #2a5580;
 }
 
 .catalog-cart-button {
@@ -626,9 +634,9 @@ li{
     touch-action: manipulation;
     vertical-align: top;
     white-space: nowrap;
- }
+}
   
- .catalog-cart-button:hover {
+.catalog-cart-button:hover {
     background-color: #1366d6;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     opacity: 1;
@@ -647,6 +655,60 @@ li{
 }
   
 .catalog-cart-button:active:after {
+    opacity: 1;
+}
+
+.catalog-cart-button-remove {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #3c1412;
+    border-radius: 2rem;
+    border-style: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    width: 170px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+  
+.catalog-cart-button-remove:hover {
+    background-color: #5f201c;
+    box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+  
+.catalog-cart-button-remove:hover:after {
+    opacity: .5;
+}
+  
+.catalog-cart-button-remove:active {
+    box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+  
+.catalog-cart-button-remove:active:after {
     opacity: 1;
 }
 
@@ -716,7 +778,7 @@ li{
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 100%;
+    height: 855px;
     display: flex;
     justify-content: center;
 }
