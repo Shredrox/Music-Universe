@@ -10,7 +10,7 @@ export function CatalogProduct({product, toggleCart}){
                 {product.name}
             </p>
             <button className="nav-button" onClick={() => toggleCart(product.id)}>
-                Add to Cart bro
+                {product.inCart ? "Remove To Cart" : "Add To Cart" }
             </button>
         </div>
     )

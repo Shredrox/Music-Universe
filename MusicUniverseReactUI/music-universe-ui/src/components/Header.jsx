@@ -39,6 +39,13 @@ export function Header(){
                             </button>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/cart">
+                            <button className="nav-button" role="button">
+                                Cart
+                            </button>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
 
