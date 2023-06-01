@@ -2,26 +2,39 @@
   "products": [
     {
       "id": 1,
-      "name": "Guitar Misha",
+      "name": "Guitar 1",
       "description": "mnogo hubavo",
-      "price": "5mil$",
+      "price": "900$",
       "category": "6-string",
-      "image": "./assets/mishaGuitar.png",
-      "inCart": false,
-      "reviews":{
+      "image": "/src/assets/mishaGuitar.png",
+      "inCart": true,
+      "reviews": {
         "content": "nice",
         "rating": "69"
       }
     },
     {
       "id": 2,
-      "name": "Guitar Misha",
+      "name": "Guitar 2",
       "description": "mnogo hubavo",
-      "price": "5mil$",
+      "price": "1200$",
       "category": "6-string",
-      "image": "./assets/mishaGuitar.png",
-      "inCart": false,
-      "reviews":{
+      "image": "/src/assets/mishaGuitar.png",
+      "inCart": true,
+      "reviews": {
+        "content": "nice",
+        "rating": 69
+      }
+    },
+    {
+      "id": 3,
+      "name": "Guitar 3",
+      "description": "mnogo hubavo",
+      "price": "500$",
+      "category": "6-string",
+      "image": "/src/assets/mishaGuitar.png",
+      "inCart": true,
+      "reviews": {
         "content": "nice",
         "rating": 69
       }
