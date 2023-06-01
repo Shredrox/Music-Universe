@@ -583,3 +583,202 @@ li{
     grid-template-rows: repeat(7, 1fr);
     gap: 20px;
 }
+
+.catalog-product{
+    background-color: #0d233b;
+    height: 280px;
+    width: 400px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.catalog-cart-button {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #2f80ed;
+    border-radius: 2rem;
+    border-style: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    width: 120px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+ }
+  
+ .catalog-cart-button:hover {
+    background-color: #1366d6;
+    box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+  
+.catalog-cart-button:hover:after {
+    opacity: .5;
+}
+  
+.catalog-cart-button:active {
+    box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+  
+.catalog-cart-button:active:after {
+    opacity: 1;
+}
+
+/*CART*/
+#cart-icon{
+    width: 32px;
+}
+
+.cart-button {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #2f80ed;
+    border-radius: 2rem;
+    border-style: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 5px;
+    width: 60px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+  
+.cart-button:hover {
+    background-color: #1366d6;
+    box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+  
+.cart-button:hover:after {
+    opacity: .5;
+}
+  
+.cart-button:active {
+    box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+  
+.cart-button:active:after {
+    opacity: 1;
+}
+
+#cart-section{
+    background: url('./assets/guitarbg2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#cart-container{
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    margin: 100px;
+    width: 70%;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    background: rgb(2,0,36);
+    background: linear-gradient(31deg, rgba(2,0,36,1) 0%, rgba(4,12,33,1) 0%, rgba(32,12,70,1) 100%); 
+}
+
+#cart-products{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+    width: 80%;
+    overflow-y: scroll;
+}
+
+#cart-summary{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    width: 20%;
+    height: 100%;
+    background-color: #0d233b;
+    border-radius: 1rem;
+}
+
+.cart-product-card{
+    background-color: #0d233b;
+    height: 200px;
+    width: 97%;
+    margin-right: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+}
+
+.cart-product{
+    background-color: #0a1121;
+    width: 350px;
+    height: 200px;
+    border-radius: 6px;
+}
+
+.card-product-name{
+    color: white;
+    height: 15%;
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+  

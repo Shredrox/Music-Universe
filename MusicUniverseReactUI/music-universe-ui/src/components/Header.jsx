@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RergisterForm";
 import { FormModal } from "./FormModal";
+import cartIcon from '../assets/cartBtnIcon.png';
 
 export function Header(){
     const [modalIsOpen, setIsOpen] = useState(false);  
@@ -41,8 +42,8 @@ export function Header(){
                     </li>
                     <li>
                         <Link to="/cart">
-                            <button className="nav-button" role="button">
-                                Cart
+                            <button className="cart-button" role="button">
+                                <img id="cart-icon" src={cartIcon} alt="" />
                             </button>
                         </Link>
                     </li>
