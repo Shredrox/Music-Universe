@@ -1,24 +1,46 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { LoginForm } from "./components/LoginForm"
-import { LoginRegister } from './pages/LoginRegister'
+import { useEffect } from 'react'
 import { Header } from './components/Header'
-import { StartSection } from './components/StartSection'
-import { ProductsShowcase } from './components/ProductsShowcase'
 import { Home } from './pages/Home'
-import {Routes, Route} from 'react-router-dom'
+import {  Routes, Route } from 'react-router-dom'
 import { Catalog } from './pages/Catalog'
 
 function App() {
-  const [openModal, setOpenModal] = useState(false);
-  
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async () => {
+    const result = await fetch('http://localhost:5000/products');
+    const data = await result.json();
+    
+    return data;
+  }
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const getProductsFromServer = await fetchProducts();
+      setProducts(getProductsFromServer);
+    }
+
+    getProducts();
+  }, [])
+
+  const addToCart = (id) => {
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        return { ...product, inCart: !product.inCart };
+      }
+      return product;
+    });
+
+    setProducts(updatedProducts);
+  }
+
   return (
     <>
       <Header/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/login" element={<LoginRegister/>} />
-        <Route path="/catalog" element={<Catalog/>} />
+        <Route path="/catalog" element={<Catalog products={products} toggleCart={addToCart}/>} />
       </Routes>
     </>
   )

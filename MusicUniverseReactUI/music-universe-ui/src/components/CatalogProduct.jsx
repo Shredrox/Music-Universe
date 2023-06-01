@@ -1,15 +1,17 @@
 import React from "react";
-import featuredProductImage from '../assets/mishaGuitar.png';
 
-export function CatalogProduct(){
+export function CatalogProduct({product, toggleCart}){
     return (
-        <div className="productCard">
+        <div className="catalog-product">
             <div className="product">
-                <img className="featuredProductImg" src={featuredProductImage} alt="" />
+                <img className="featuredProductImg" src={product.image} alt="aaa" />
             </div>
             <p className="productName">
-                Guitar 1
+                {product.name}
             </p>
+            <button className="nav-button" onClick={() => toggleCart(product.id)}>
+                Add to Cart bro
+            </button>
         </div>
     )
 }

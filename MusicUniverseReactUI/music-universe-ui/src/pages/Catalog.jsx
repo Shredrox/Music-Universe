@@ -1,22 +1,13 @@
 import React from "react";
 import { CategoriesTab } from "../components/CategoriesTab";
-import { CatalogProduct } from "../components/CatalogProduct";
+import { CatalogTab } from "../components/CatalogTab";
 
-export function Catalog(){
+export function Catalog({products, toggleCart}){
     return (
         <div id="catalog-section">
             <div id="catalog-container">
                 <CategoriesTab/>
-                <div className="catalog-products-container">
-                    <CatalogProduct/>
-                    <CatalogProduct/>
-                    <CatalogProduct/>
-                    <CatalogProduct/>
-                    <CatalogProduct/>
-                    <CatalogProduct/>
-                    
-
-                </div>
+                <CatalogTab products={products} toggleCart={toggleCart}/>
             </div>
         </div>
     )

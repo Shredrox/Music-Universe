@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Guitar Misha",
+      "description": "mnogo hubavo",
+      "price": "5mil$",
+      "category": "6-string",
+      "image": "./assets/mishaGuitar.png",
+      "inCart": false,
+      "reviews":{
+        "content": "nice",
+        "rating": "69"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Guitar Misha",
+      "description": "mnogo hubavo",
+      "price": "5mil$",
+      "category": "6-string",
+      "image": "./assets/mishaGuitar.png",
+      "inCart": false,
+      "reviews":{
+        "content": "nice",
+        "rating": 69
+      }
+    }
+  ]
+}
