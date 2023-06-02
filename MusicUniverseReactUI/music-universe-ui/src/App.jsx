@@ -9,16 +9,10 @@ import { ProductPage } from './pages/ProductPage'
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchProducts = async () => {
     const result = await fetch('http://localhost:5000/products/');
-    const data = await result.json();
-    
-    return data;
-  }
-
-  const fetchProduct = async (id) => {
-    const result = await fetch(`http://localhost:5000/products/${id}`);
     const data = await result.json();
     
     return data;
@@ -28,10 +22,17 @@ function App() {
     const getProducts = async () => {
       const getProductsFromServer = await fetchProducts();
       setProducts(getProductsFromServer);
+      setIsLoading(false);
     }
 
     getProducts();
   }, [])
+
+  const fetchProduct = async (id) => {
+    const result = await fetch(`http://localhost:5000/products/${id}`);
+    const data = await result.json();
+    return data;
+  }
 
   const addToCart = async (id) => {
     const productToAdd = await fetchProduct(id);
@@ -82,6 +83,8 @@ function App() {
 
     setProducts(updatedProducts);
   }
+
+  if(isLoading) return <div>loading</div>
 
   return (
     <>
