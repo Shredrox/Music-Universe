@@ -596,6 +596,7 @@ li{
     align-items: center;
     padding: 1rem 0;
     transition: 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .catalog-product:hover{
@@ -844,3 +845,40 @@ li{
     align-items: center;
 }
   
+
+/*PRODUCT PAGE*/
+.product-page{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.review-form{
+    background-color: #050e1d;
+    color: white;
+    padding: 15px;
+    top: 150px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    box-shadow: 0 0 20px 1px #AF40FF;
+}
+
+.review-input{
+    background-color: #162352;
+    border-radius: 5px;
+    border-color: #162352;
+    color: white;
+    width: 80%;
+    height: 150px;
+    text-align:start;
+    resize:none;
+    overflow-y: scroll;
+}

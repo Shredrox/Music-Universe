@@ -5,6 +5,7 @@ import { Home } from './pages/Home'
 import {  Routes, Route } from 'react-router-dom'
 import { Catalog } from './pages/Catalog'
 import { CartPage } from './pages/CartPage'
+import { ProductPage } from './pages/ProductPage'
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -56,6 +57,32 @@ function App() {
     setProducts(updatedProducts);
   }
 
+  const addReview = async(id, review) =>{
+    const reviewedProduct = await fetchProduct(id);
+    const updatedReviews = reviewedProduct.reviews;
+    updatedReviews.push(review)
+    const updatedProduct = { ...reviewedProduct, reviews: updatedReviews};
+
+    const result = await fetch(`http://localhost:5000/products/${id}`, {
+      method: "PUT", 
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(updatedProduct)
+    });
+
+    const data = await result.json();
+
+    const updatedProducts = products.map((product) => {
+      if (product.id === id) {
+        return { ...product, inCart: data.inCart };
+      }
+      return product;
+    });
+
+    setProducts(updatedProducts);
+  }
+
   return (
     <>
       <Header/>
@@ -63,6 +90,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/catalog" element={<Catalog products={products} toggleCart={addToCart}/>} />
         <Route path="/cart" element={<CartPage products={products} toggleCart={addToCart}/>} />
+        <Route path="/product/:id" element={<ProductPage products={products} toggleCart={addToCart} onAdd={addReview}/>} />
       </Routes>
     </>
   )
