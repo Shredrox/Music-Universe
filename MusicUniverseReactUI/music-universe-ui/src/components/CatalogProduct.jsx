@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export function CatalogProduct({product, toggleCart}){
+    const navigate = useNavigate(); 
+
+    function stopPropagation(e) {
+        e.stopPropagation();
+    }
+
     return (
-        <div className="catalog-product">
+        <div onClick={() => {navigate(`/product/${product.id}`) }} className="catalog-product">
             <div className="product">
                 <img className="featuredProductImg" src={product.image} alt="aaa" />
             </div>
@@ -14,7 +21,7 @@ export function CatalogProduct({product, toggleCart}){
             </p>
             <button 
                 className={product.inCart ? "catalog-cart-button-remove" : "catalog-cart-button" } 
-                onClick={() => toggleCart(product.id)}>
+                onClick={(e) =>{stopPropagation(e); toggleCart(product.id)} }>
                 {product.inCart ? "Remove From Cart" : "Add To Cart" }
             </button>
         </div>
