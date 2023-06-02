@@ -48,8 +48,8 @@ export const ProductPage = ({products, toggleCart, onAdd}) => {
             <div className="product-description">
               {product.description}
             </div>
-            {product.name}
-            {product.price}
+            <label>{product.name}</label>
+            Price: {product.price}
             <button 
               className={product.inCart ? "catalog-cart-button-remove" : "catalog-cart-button" } 
               onClick={() => toggleCart(product.id)}>
@@ -60,8 +60,9 @@ export const ProductPage = ({products, toggleCart, onAdd}) => {
 
         <div className="review-section">
           <div className="review-list">
+            Reviews:
             {reviews.map((review) => 
-              <ReviewCard key={review.reviewId} content={review.content} rating={review.raiting}/>
+              <ReviewCard key={review.reviewId} content={review.content} rating={review.rating}/>
             )}
           </div>
           
