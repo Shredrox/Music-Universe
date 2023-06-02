@@ -6,6 +6,35 @@ export function RegisterForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const fetchUsers = async () => {
+        const result = await fetch('http://localhost:5000/users/');
+        const data = await result.json();
+        
+        return data;
+    }
+    
+    const register = async(input) =>{
+        const users = await fetchUsers();    
+        const id = Math.random();
+
+        const newUser = {
+            id: id,
+            name: name,
+            email: email,
+            password: password,
+            role: "user",
+            isActive: true
+        };
+    
+        const result = await fetch(`http://localhost:5000/users`, {
+          method: "POST", 
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(newUser)
+        });
+    }
+
     const submitData = (event) => {
         event.preventDefault()
         const data = {
@@ -14,13 +43,14 @@ export function RegisterForm(){
           password: password
         };
 
-        Axios.post('https://localhost:7182/api/Users/Register', data)
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-             console.error(error);
-        });
+        // Axios.post('https://localhost:7182/api/Users/Register', data)
+        // .then(response => {
+        //     console.log(response.data);
+        // })
+        // .catch(error => {
+        //      console.error(error);
+        // });
+        register(data);
     }
 
     return (

@@ -6,6 +6,32 @@ export function LoginForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const fetchUsers = async () => {
+        const result = await fetch('http://localhost:5000/users/');
+        const data = await result.json();
+        
+        return data;
+    }
+    
+    const login = async(input) =>{
+        const users = await fetchUsers();    
+        const user = users.find((user) =>{
+         if(user.email === input.email && user.password === input.password){
+           return user;
+         }
+        });
+    
+        const loggedInUser = { ...user, isActive: true};
+    
+        const result = await fetch(`http://localhost:5000/users/${loggedInUser.id}`, {
+          method: "PUT", 
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(loggedInUser)
+        });
+    }
+
     const submitData = (event) => {
         event.preventDefault()
         const data = {
@@ -13,13 +39,14 @@ export function LoginForm(){
           password: password
         };
 
-        Axios.post('https://localhost:7182/api/Users/Login', data)
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-             console.error(error);
-        });
+        login(data);
+        // Axios.post('https://localhost:7182/api/Users/Login', data)
+        // .then(response => {
+        //     console.log(response.data);
+        // })
+        // .catch(error => {
+        //      console.error(error);
+        // });
     }
 
     return (

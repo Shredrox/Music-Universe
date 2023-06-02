@@ -1,32 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Cool Guitar 1",
-      "description": "mnogo hubavo",
-      "price": "900$",
-      "category": "6-string",
-      "image": "/src/assets/mishaGuitar.png",
-      "inCart": false,
-      "reviews": [
-        {
-          "reviewId": 1,
-          "content": "nice",
-          "rating": "69"
-        },
-        {
-          "reviewId": 2,
-          "content": "jtrsjsrtj",
-          "rating": "236236"
-        },
-        {
-          "reviewId": 0.059486078468182324,
-          "content": "htgdkdkdthtgdkdthtgdkdthtgdkdthtgdkdthtgdkdthtgdkdthtgdkdt",
-          "rating": "420"
-        }
-      ]
-    },
-    {
       "id": 2,
       "name": "Guitar 2",
       "description": "mnogo hubavo",
@@ -39,6 +13,16 @@
           "reviewId": 1,
           "content": "nice",
           "rating": "69"
+        },
+        {
+          "reviewId": 0.5950327745154617,
+          "content": "shd",
+          "rating": "123"
+        },
+        {
+          "reviewId": 0.9586400557532825,
+          "content": "g",
+          "rating": "1"
         }
       ]
     },
@@ -55,6 +39,21 @@
           "reviewId": 1,
           "content": "nice",
           "rating": "69"
+        },
+        {
+          "reviewId": 0.22941432773141002,
+          "content": "aetjaejaetgijaekrjunhgaernhlaujenhueatnhuaetuhnaetunhuaetnhuaenthuanet",
+          "rating": "1"
+        },
+        {
+          "reviewId": 0.8340044528910128,
+          "content": "w",
+          "rating": "1"
+        },
+        {
+          "reviewId": 0.6079652284421081,
+          "content": "TEST REVIEW",
+          "rating": "39"
         }
       ]
     },
@@ -65,7 +64,7 @@
       "price": "200$",
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": true,
+      "inCart": false,
       "reviews": [
         {
           "content": "nice",
@@ -74,11 +73,22 @@
       ]
     }
   ],
-  "users":[
+  "users": [
     {
+      "id": 1,
       "name": "admin",
       "password": "admin123",
-      "email": "adminmail"
+      "email": "a@m",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": 0.1624112205543985,
+      "name": "test",
+      "email": "test@t",
+      "password": "test",
+      "role": "user",
+      "isActive": true
     }
   ]
 }
