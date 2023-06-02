@@ -2,16 +2,29 @@
   "products": [
     {
       "id": 1,
-      "name": "Guitar 1",
+      "name": "Cool Guitar 1",
       "description": "mnogo hubavo",
       "price": "900$",
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": true,
-      "reviews": {
-        "content": "nice",
-        "rating": "69"
-      }
+      "inCart": false,
+      "reviews": [
+        {
+          "reviewId": 1,
+          "content": "nice",
+          "rating": "69"
+        },
+        {
+          "reviewId": 2,
+          "content": "jtrsjsrtj",
+          "rating": "236236"
+        },
+        {
+          "reviewId": 0.059486078468182324,
+          "content": "htgdkdkdthtgdkdthtgdkdthtgdkdthtgdkdthtgdkdthtgdkdthtgdkdt",
+          "rating": "420"
+        }
+      ]
     },
     {
       "id": 2,
@@ -20,11 +33,14 @@
       "price": "1200$",
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": true,
-      "reviews": {
-        "content": "nice",
-        "rating": 69
-      }
+      "inCart": false,
+      "reviews": [
+        {
+          "reviewId": 1,
+          "content": "nice",
+          "rating": "69"
+        }
+      ]
     },
     {
       "id": 3,
@@ -34,10 +50,35 @@
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
       "inCart": true,
-      "reviews": {
-        "content": "nice",
-        "rating": 69
-      }
+      "reviews": [
+        {
+          "reviewId": 1,
+          "content": "nice",
+          "rating": "69"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Guitar 4",
+      "description": "mnogo hubavo",
+      "price": "200$",
+      "category": "6-string",
+      "image": "/src/assets/mishaGuitar.png",
+      "inCart": true,
+      "reviews": [
+        {
+          "content": "nice",
+          "rating": "69"
+        }
+      ]
+    }
+  ],
+  "users":[
+    {
+      "name": "admin",
+      "password": "admin123",
+      "email": "adminmail"
     }
   ]
 }
