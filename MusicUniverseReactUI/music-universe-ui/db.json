@@ -7,21 +7,18 @@
       "price": "1200$",
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": false,
+      "inCart": true,
       "reviews": [
         {
+          "reviewerUsername": "Hehe",
           "reviewId": 1,
           "content": "nice",
           "rating": "69"
         },
         {
-          "reviewId": 0.5950327745154617,
-          "content": "shd",
-          "rating": "123"
-        },
-        {
-          "reviewId": 0.9586400557532825,
-          "content": "g",
+          "reviewerUsername": "admin",
+          "reviewId": 0.5459485615183357,
+          "content": "test be",
           "rating": "1"
         }
       ]
@@ -33,29 +30,8 @@
       "price": "500$",
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": true,
-      "reviews": [
-        {
-          "reviewId": 1,
-          "content": "nice",
-          "rating": "69"
-        },
-        {
-          "reviewId": 0.22941432773141002,
-          "content": "aetjaejaetgijaekrjunhgaernhlaujenhueatnhuaetuhnaetunhuaetnhuaenthuanet",
-          "rating": "1"
-        },
-        {
-          "reviewId": 0.8340044528910128,
-          "content": "w",
-          "rating": "1"
-        },
-        {
-          "reviewId": 0.6079652284421081,
-          "content": "TEST REVIEW",
-          "rating": "39"
-        }
-      ]
+      "inCart": false,
+      "reviews": []
     },
     {
       "id": 4,
@@ -64,13 +40,8 @@
       "price": "200$",
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": false,
-      "reviews": [
-        {
-          "content": "nice",
-          "rating": "69"
-        }
-      ]
+      "inCart": true,
+      "reviews": []
     }
   ],
   "users": [
@@ -80,7 +51,7 @@
       "password": "admin123",
       "email": "a@m",
       "role": "admin",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": 0.1624112205543985,
@@ -88,7 +59,15 @@
       "email": "test@t",
       "password": "test",
       "role": "user",
-      "isActive": true
+      "isActive": false
+    },
+    {
+      "id": 0.3125913496251872,
+      "name": "aetjaetjaetjaetkhaet",
+      "email": "123",
+      "password": "123",
+      "role": "user",
+      "isActive": false
     }
   ]
 }

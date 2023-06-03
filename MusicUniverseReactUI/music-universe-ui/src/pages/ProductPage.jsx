@@ -21,12 +21,32 @@ export const ProductPage = ({products, toggleCart, onAdd}) => {
     setReviews(product.reviews);
   }, [])
   
-  const submitReview = (e) => {
+  const submitReview = async (e) => {
     e.preventDefault();
 
     const id = Math.random();
+    let name = 'Anonymous';
+
+    const fetchUsers = async () => {
+      const result = await fetch('http://localhost:5000/users/');
+      const data = await result.json();
+      
+      return data;
+    }
+
+    const users = await fetchUsers();    
+    const user = users.find((user) =>{
+    if(user.isActive == true){
+      return user;
+    }
+    });
+
+    if(user !== undefined && user !== null){
+      name = user.name;
+    }
 
     const data = {
+      reviewerUsername: name,
       reviewId: id,
       content: content,
       rating: rating
@@ -62,7 +82,7 @@ export const ProductPage = ({products, toggleCart, onAdd}) => {
           <div className="review-list">
             Reviews:
             {reviews.map((review) => 
-              <ReviewCard key={review.reviewId} content={review.content} rating={review.rating}/>
+              <ReviewCard key={review.reviewId} review={review}/>
             )}
           </div>
           
