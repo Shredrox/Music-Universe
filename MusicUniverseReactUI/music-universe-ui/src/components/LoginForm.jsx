@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Axios from 'axios';
 
-export function LoginForm(){
+export function LoginForm({changeForm, closeForm}){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,7 +22,7 @@ export function LoginForm(){
         });
     
         const loggedInUser = { ...user, isActive: true};
-    
+
         const result = await fetch(`http://localhost:5000/users/${loggedInUser.id}`, {
           method: "PUT", 
           headers: {
@@ -30,6 +30,8 @@ export function LoginForm(){
           },
           body: JSON.stringify(loggedInUser)
         });
+
+        closeForm(loggedInUser.name);
     }
 
     const submitData = (event) => {
@@ -56,7 +58,8 @@ export function LoginForm(){
             <input className='input' type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
             <label className='form-text' htmlFor="email">Password: </label>
             <input className='input' type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
-            <button className='glow-on-hover' type="submit" onClick={submitData}>Log In</button><br/><br/><br/>
+            <button className='glow-on-hover' type="submit" onClick={submitData}>Log In</button>
+            <a className='register-form-login-button' onClick={changeForm}>Don't have an account? Sign Up</a>
         </form>
     )
 }

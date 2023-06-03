@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Modal from 'react-modal';
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RergisterForm";
 import { FormModal } from "./FormModal";
@@ -10,6 +9,8 @@ import cartIcon from '../assets/cartBtnIcon.png';
 export function Header(){
     const [modalIsOpen, setIsOpen] = useState(false);  
     const [modalContent, setModalContent] = useState(<div></div>);
+    const [buttonsVisible, setButtonsVisible] = useState(true);
+    const [username,setUsername] = useState('');
 
     function openModal(content) {
         setIsOpen(true);
@@ -20,6 +21,25 @@ export function Header(){
     function closeModal() {
         setIsOpen(false);
         document.body.style.overflow = 'unset';
+    }
+
+    function changeModalFormToLogin(){
+        setModalContent(<LoginForm changeForm={changeModalFormToRegister} closeForm={closeModalAndUpdateHeader}></LoginForm>);
+    }
+
+    function changeModalFormToRegister(){
+        setModalContent(<RegisterForm changeForm={changeModalFormToLogin} closeForm={closeModalAndUpdateHeader}></RegisterForm>);
+    }
+
+    function closeModalAndUpdateHeader(username) {
+        setIsOpen(false);
+        document.body.style.overflow = 'unset';
+        setButtonsVisible(false);
+        setUsername(username);
+    }
+
+    function showButtons() {
+        setButtonsVisible(true);
     }
 
     return(
@@ -52,20 +72,30 @@ export function Header(){
 
             <input className="searchBar" type="text" placeholder="Search.."/>
 
+            {buttonsVisible &&
             <div className="button-container">
-                <button onClick={() => openModal(<LoginForm></LoginForm>)}  className="login-button" role="button">
-                    <span>Login</span>
+                <button onClick={() => openModal(<LoginForm changeForm={changeModalFormToRegister} closeForm={closeModalAndUpdateHeader}></LoginForm>)} className="login-button" role="button">
+                    <span>Log In</span>
                 </button>
-                <button onClick={() => openModal(<RegisterForm></RegisterForm>)} className="login-button" role="button">
+                <button onClick={() => openModal(<RegisterForm changeForm={changeModalFormToLogin} closeForm={closeModalAndUpdateHeader}></RegisterForm>)} className="login-button" role="button">
                     <span>Sign Up</span>
                 </button>
             </div>
+            }
+
+            {!buttonsVisible && 
+            <div className="button-container">
+                <label className="username-label">{username}</label>
+                <button onClick={showButtons} className="logout-button" role="button">
+                    <span>Log Out</span>
+                </button>
+            </div>     
+            }
 
             <FormModal 
                 isOpen={modalIsOpen} 
                 closeModal={closeModal}
                 content={modalContent}>
-                    
             </FormModal>
         </header>
     )
