@@ -38,7 +38,31 @@ export function Header(){
         setUsername(username);
     }
 
-    function showButtons() {
+    async function logout() {
+        const fetchUsers = async () => {
+            const result = await fetch('http://localhost:5000/users/');
+            const data = await result.json();
+            
+            return data;
+        }
+
+        const users = await fetchUsers();    
+        const user = users.find((user) =>{
+         if(user.isActive == true){
+           return user;
+         }
+        });
+
+        const loggingOutUser = { ...user, isActive: false};
+
+        const result = await fetch(`http://localhost:5000/users/${loggingOutUser.id}`, {
+          method: "PUT", 
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(loggingOutUser)
+        });
+
         setButtonsVisible(true);
     }
 
@@ -86,7 +110,7 @@ export function Header(){
             {!buttonsVisible && 
             <div className="button-container">
                 <label className="username-label">{username}</label>
-                <button onClick={showButtons} className="logout-button" role="button">
+                <button onClick={logout} className="logout-button" role="button">
                     <span>Log Out</span>
                 </button>
             </div>     
