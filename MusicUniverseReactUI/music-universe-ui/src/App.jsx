@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { Header } from './components/Header'
 import { Home } from './pages/Home'
-import {  Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { Catalog } from './pages/Catalog'
 import { CartPage } from './pages/CartPage'
 import { ProductPage } from './pages/ProductPage'
@@ -18,13 +18,13 @@ function App() {
     return data;
   }
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const getProductsFromServer = await fetchProducts();
-      setProducts(getProductsFromServer);
-      setIsLoading(false);
-    }
+  const getProducts = async () => {
+    const getProductsFromServer = await fetchProducts();
+    setProducts(getProductsFromServer);
+    setIsLoading(false);
+  }
 
+  useEffect(() => {
     getProducts();
   }, [])
 
@@ -93,7 +93,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/catalog" element={<Catalog products={products} toggleCart={addToCart}/>} />
         <Route path="/cart" element={<CartPage products={products} toggleCart={addToCart}/>} />
-        <Route path="/product/:id" element={<ProductPage products={products} toggleCart={addToCart} onAdd={addReview}/>} />
+        <Route path="/product/:id" element={<ProductPage toggleCart={addToCart} onAdd={addReview}/> } />
       </Routes>
     </>
   )

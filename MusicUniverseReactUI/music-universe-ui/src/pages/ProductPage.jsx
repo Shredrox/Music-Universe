@@ -3,24 +3,34 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { ReviewCard } from '../components/ReviewCard';
 
-export const ProductPage = ({products, toggleCart, onAdd}) => {
+export const ProductPage = ({toggleCart, onAdd}) => {
   const [content, setContent] = useState('');
   const [rating, setRating] = useState('');
   const [reviews, setReviews] = useState([]);
+  const [product, setProduct] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
 
-  const product = products.find((product) => {
-    if (product.id == productId) {
-      return product; 
-    }
-  });
+  const fetchProduct = async (id) => {
+    const result = await fetch(`http://localhost:5000/products/${productId}`);
+    const data = await result.json();
+    return data;
+  }
 
-  useEffect(()=>{
+  const getProduct = async () => {
+    const product = await fetchProduct();
+
+    setProduct(product);
     setReviews(product.reviews);
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    getProduct();
   }, [])
-  
+
   const submitReview = async (e) => {
     e.preventDefault();
 
@@ -57,6 +67,8 @@ export const ProductPage = ({products, toggleCart, onAdd}) => {
     setRating('');
     setReviews([...reviews, data]);
   }
+
+  if(isLoading) return 'loading'
 
   return (
     <div className='product-page'>
