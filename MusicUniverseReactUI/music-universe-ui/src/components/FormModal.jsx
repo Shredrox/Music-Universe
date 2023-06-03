@@ -26,7 +26,7 @@ export function FormModal({isOpen, content, closeModal}){
     };
 
     return (
-        <Modal isOpen={isOpen} style={customStyles} onRequestClose={closeModal}>
+        <Modal ariaHideApp={false} isOpen={isOpen} style={customStyles} onRequestClose={closeModal}>
             {content}
             <button id="modal-close-button" onClick={closeModal}>X</button>
         </Modal>
