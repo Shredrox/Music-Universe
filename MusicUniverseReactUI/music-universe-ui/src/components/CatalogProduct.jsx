@@ -17,7 +17,7 @@ export function CatalogProduct({product, toggleCart}){
                 {product.name}
             </p>
             <p className="productName">
-                Price: {product.price}
+                Price: ${product.price}
             </p>
             <button 
                 className={product.inCart ? "catalog-cart-button-remove" : "catalog-cart-button" } 

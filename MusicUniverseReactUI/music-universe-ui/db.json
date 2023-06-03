@@ -4,7 +4,7 @@
       "id": 2,
       "name": "Guitar 2",
       "description": "mnogo hubavo",
-      "price": "1200$",
+      "price": 1200,
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
       "inCart": true,
@@ -20,6 +20,30 @@
           "reviewId": 0.5459485615183357,
           "content": "test be",
           "rating": "1"
+        },
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.8927545536761161,
+          "content": "PLS",
+          "rating": "1"
+        },
+        {
+          "reviewerUsername": "aetjaetjaetjaetkhaet",
+          "reviewId": 0.3348500514982654,
+          "content": "NICE",
+          "rating": "420"
+        },
+        {
+          "reviewerUsername": "aetjaetjaetjaetkhaet",
+          "reviewId": 0.7495116469709773,
+          "content": "ABE EI",
+          "rating": "2154125"
+        },
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.5107113996720529,
+          "content": "tjaerjaet",
+          "rating": "125"
         }
       ]
     },
@@ -27,17 +51,24 @@
       "id": 3,
       "name": "Guitar 3",
       "description": "mnogo hubavo",
-      "price": "500$",
+      "price": 500,
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
       "inCart": false,
-      "reviews": []
+      "reviews": [
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.7369480249615595,
+          "content": "mn ubavo",
+          "rating": "1"
+        }
+      ]
     },
     {
       "id": 4,
       "name": "Guitar 4",
       "description": "mnogo hubavo",
-      "price": "200$",
+      "price": 200,
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
       "inCart": true,

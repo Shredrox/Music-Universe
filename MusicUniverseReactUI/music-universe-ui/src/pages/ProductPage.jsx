@@ -81,7 +81,7 @@ export const ProductPage = ({toggleCart, onAdd}) => {
               {product.description}
             </div>
             <label>{product.name}</label>
-            Price: {product.price}
+            Price: ${product.price}
             <button 
               className={product.inCart ? "catalog-cart-button-remove" : "catalog-cart-button" } 
               onClick={() =>{toggleCart(product.id); setProduct({...product, inCart: !product.inCart}); } }>

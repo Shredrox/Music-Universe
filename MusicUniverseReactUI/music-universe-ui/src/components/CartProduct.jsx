@@ -10,7 +10,7 @@ export const CartProduct = ({product, toggleCart}) => {
           {product.name}
       </p>
       <p className="card-product-name">
-          Price: {product.price}
+          Price: ${product.price}
       </p>
       <button className="cart-button" onClick={() => toggleCart(product.id)}>
           X
