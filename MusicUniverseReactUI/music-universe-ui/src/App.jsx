@@ -103,7 +103,7 @@ function App() {
     <>
       <Header setLoggedInUser={setLoggedInUser} user={loggedInUser}/>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home products={products}/>}/>
         <Route path="/catalog" element={<Catalog toggleCart={addToCart}/>} />
         <Route path="/cart" element={<CartPage products={products}/>} />
         <Route path="/product/:id" element={<ProductPage toggleCart={addToCart} onAdd={addReview}/> } />

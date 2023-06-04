@@ -4,10 +4,9 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from "react-router-dom";
 
-export function ProductsShowcase(){
+export function ProductsShowcase({products}){
     const responsive = {
         superLargeDesktop: {
-          // the naming can be any, depends on you.
           breakpoint: { max: 4000, min: 3000 },
           items: 4
         },
@@ -35,23 +34,10 @@ export function ProductsShowcase(){
                   slidesToSlide={1}
                   centerMode={false}
                   itemClass="carouselItem">
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                  </Carousel>
-                  <Carousel 
-                    containerClass="carousel"  
-                    responsive={responsive}
-                    itemClass="carouselItem">
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                  </Carousel>
-              
+                  {products.map((product) => 
+                    <ProductCard key={product.id} product={product}/>
+                  )}
+                </Carousel>    
               </div>
             </div>
 

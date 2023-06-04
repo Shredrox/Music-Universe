@@ -1,14 +1,13 @@
 import React from "react";
-import featuredProductImage from '../assets/mishaGuitar.png';
 
-export function ProductCard(){
+export function ProductCard({product}){
     return (
         <div className="productCard">
             <div className="product">
-                <img className="featuredProductImg" src={featuredProductImage} alt="" />
+                <img className="featuredProductImg" src={product.image} alt="" />
             </div>
             <p className="productName">
-                Guitar 1
+                {product.name}
             </p>
         </div>
     )
