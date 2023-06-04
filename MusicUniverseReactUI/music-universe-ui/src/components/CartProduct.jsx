@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CartProduct = ({product, toggleCart}) => {
+export const CartProduct = ({product, quantity, toggleCart}) => {
   return (
     <div className="cart-product-card">
       <div className="cart-product">
@@ -11,6 +11,9 @@ export const CartProduct = ({product, toggleCart}) => {
       </p>
       <p className="card-product-name">
           Price: ${product.price}
+      </p>
+      <p className="card-product-name">
+          Quantity: {quantity}
       </p>
       <button className="cart-button" onClick={() => toggleCart(product.id)}>
           X

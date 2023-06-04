@@ -7,7 +7,6 @@
       "price": 1200,
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": true,
       "reviews": [
         {
           "reviewerUsername": "Hehe",
@@ -44,6 +43,24 @@
           "reviewId": 0.5107113996720529,
           "content": "tjaerjaet",
           "rating": "125"
+        },
+        {
+          "reviewerUsername": "test",
+          "reviewId": 0.7185837071372317,
+          "content": "uhgawiugnaiuwn",
+          "rating": "12515"
+        },
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.009314138553331741,
+          "content": "atjaertjaet",
+          "rating": "1251265"
+        },
+        {
+          "reviewerUsername": "admin",
+          "reviewId": 0.32608135065811295,
+          "content": "TEST",
+          "rating": "123"
         }
       ]
     },
@@ -53,8 +70,7 @@
       "description": "mnogo hubavo",
       "price": 500,
       "category": "6-string",
-      "image": "/src/assets/mishaGuitar.png",
-      "inCart": false,
+      "image": "/src/assets/guitar4.png",
       "reviews": [
         {
           "reviewerUsername": "Anonymous",
@@ -71,7 +87,6 @@
       "price": 200,
       "category": "6-string",
       "image": "/src/assets/mishaGuitar.png",
-      "inCart": true,
       "reviews": []
     }
   ],
@@ -82,15 +97,27 @@
       "password": "admin123",
       "email": "a@m",
       "role": "admin",
-      "isActive": false
+      "isActive": true,
+      "cart": [
+        {
+          "productId": 4,
+          "quantity": 2
+        }
+      ]
     },
     {
       "id": 0.1624112205543985,
       "name": "test",
-      "email": "test@t",
+      "email": "tt",
       "password": "test",
       "role": "user",
-      "isActive": false
+      "isActive": false,
+      "cart": [
+        {
+          "productId": 3,
+          "quantity": 2
+        }
+      ]
     },
     {
       "id": 0.3125913496251872,
@@ -98,7 +125,21 @@
       "email": "123",
       "password": "123",
       "role": "user",
-      "isActive": false
+      "isActive": false,
+      "cart": [
+        {
+          "productId": 3,
+          "quantity": 2
+        },
+        {
+          "productId": 2,
+          "quantity": 3
+        },
+        {
+          "productId": 2,
+          "quantity": 1
+        }
+      ]
     }
   ]
 }

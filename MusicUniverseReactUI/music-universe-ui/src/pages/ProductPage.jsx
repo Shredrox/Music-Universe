@@ -9,6 +9,8 @@ export const ProductPage = ({toggleCart, onAdd}) => {
   const [reviews, setReviews] = useState([]);
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [quantity, setQuantity] = useState(0);
+  const [showCartMsg, setShowCartMsg] = useState(false);
 
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
@@ -30,6 +32,22 @@ export const ProductPage = ({toggleCart, onAdd}) => {
   useEffect(() => {
     getProduct();
   }, [])
+
+  function changeQuantity(sign){
+    if(sign === '+'){
+        setQuantity(quantity+1);
+    }
+    else if(sign === '-' && quantity > 0){
+        setQuantity(quantity-1);
+    }
+  }
+
+  function toggleCartMsg(){
+    setShowCartMsg(true);
+    setTimeout(() =>{
+      setShowCartMsg(false);
+    }, 3000);
+  }
 
   const submitReview = async (e) => {
     e.preventDefault();
@@ -82,11 +100,25 @@ export const ProductPage = ({toggleCart, onAdd}) => {
             </div>
             <label>{product.name}</label>
             Price: ${product.price}
-            <button 
-              className={product.inCart ? "catalog-cart-button-remove" : "catalog-cart-button" } 
-              onClick={() =>{toggleCart(product.id); setProduct({...product, inCart: !product.inCart}); } }>
-                {product.inCart ? "Remove From Cart" : "Add To Cart" }
-            </button>
+            <div className="add-to-cart-container">
+                <div className="quantity-container">
+                    {quantity}
+                    <div className="quantity-buttons-container">
+                        <button onClick={() => { changeQuantity('+')}} className="quantity-button">+</button>
+                        <button onClick={() => { changeQuantity('-')}} className="quantity-button">-</button>
+                    </div>
+                </div>
+                <button 
+                  className="catalog-cart-button" 
+                  onClick={() =>{toggleCart(product.id, quantity); setProduct({...product, inCart: !product.inCart}); setQuantity(0); toggleCartMsg(); } }>
+                  Add To Cart 
+                </button>
+                {showCartMsg &&
+                <div className="add-to-cart-msg">
+                  Added To Cart!
+                </div>
+                }
+            </div>
           </div>
         </div>
 

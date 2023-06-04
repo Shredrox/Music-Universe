@@ -20,9 +20,9 @@ export function CatalogProduct({product, toggleCart}){
                 Price: ${product.price}
             </p>
             <button 
-                className={product.inCart ? "catalog-cart-button-remove" : "catalog-cart-button" } 
-                onClick={(e) =>{stopPropagation(e); toggleCart(product.id)} }>
-                {product.inCart ? "Remove From Cart" : "Add To Cart" }
+                className="catalog-cart-button" 
+                onClick={(e) =>{stopPropagation(e); toggleCart(product.id, 1)} }>
+                Add To Cart
             </button>
         </div>
     )

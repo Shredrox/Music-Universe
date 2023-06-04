@@ -34,28 +34,32 @@ function App() {
     return data;
   }
 
-  const addToCart = async (id) => {
-    const productToAdd = await fetchProduct(id);
-    const updatedProduct = { ...productToAdd, inCart: !productToAdd.inCart};
+  const addToCart = async (id, quantity) => {
+    const fetchUsers = async () => {
+      const result = await fetch('http://localhost:5000/users/');
+      const data = await result.json();
+      
+      return data;
+    }
 
-    const result = await fetch(`http://localhost:5000/products/${id}`, {
+    const users = await fetchUsers();    
+    const user = users.find((user) =>{
+      if(user.isActive == true){
+        return user;
+      }
+    });
+
+    const userCart = user.cart;
+    userCart.push({productId: id, quantity: quantity});
+    const updatedUser = {...user, cart: userCart};
+
+    const result = await fetch(`http://localhost:5000/users/${user.id}`, {
       method: "PUT", 
       headers: {
         "content-type": "application/json"
       },
-      body: JSON.stringify(updatedProduct)
+      body: JSON.stringify(updatedUser)
     });
-
-    const data = await result.json();
-
-    const updatedProducts = products.map((product) => {
-      if (product.id === id) {
-        return { ...product, inCart: data.inCart };
-      }
-      return product;
-    });
-
-    setProducts(updatedProducts);
   }
 
   const addReview = async(id, review) =>{
