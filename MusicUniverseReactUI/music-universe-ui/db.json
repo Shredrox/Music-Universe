@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 2,
-      "name": "Guitar 2",
+      "name": "Guitar Bre 2",
       "description": "mnogo hubavo",
       "price": 1200,
       "category": "6-string",
@@ -79,6 +79,54 @@
           "rating": "1"
         }
       ]
+    },
+    {
+      "id": 4,
+      "name": "Super Kitara 3",
+      "description": "mnogo hubavo",
+      "price": 600,
+      "category": "6-string",
+      "image": "/src/assets/guitar4.png",
+      "reviews": [
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.7369480249615595,
+          "content": "mn ubavo",
+          "rating": "1"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Mnogo Hubava Kitara",
+      "description": "mnogo hubavo",
+      "price": 900,
+      "category": "6-string",
+      "image": "/src/assets/mishaGuitar.png",
+      "reviews": [
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.7369480249615595,
+          "content": "mn ubavo",
+          "rating": "1"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Mnogo Hubava Kitara 2",
+      "description": "mnogo hubavo",
+      "price": 7100,
+      "category": "6-string",
+      "image": "/src/assets/guitar4.png",
+      "reviews": [
+        {
+          "reviewerUsername": "Anonymous",
+          "reviewId": 0.7369480249615595,
+          "content": "mn ubavo",
+          "rating": "1"
+        }
+      ]
     }
   ],
   "users": [
@@ -116,16 +164,12 @@
       "role": "user",
       "cart": [
         {
-          "productId": 3,
-          "quantity": 2
+          "productId": 2,
+          "quantity": 8
         },
         {
-          "productId": 2,
-          "quantity": 3
-        },
-        {
-          "productId": 2,
-          "quantity": 1
+          "productId": 4,
+          "quantity": 6
         }
       ]
     }
