@@ -17,7 +17,6 @@ export const ProductEditPage = () => {
     const navigate = useNavigate();
 
     const fetchProduct = async (id) => {
-        console.log(productId);
       const result = await fetch(`http://localhost:5000/products/${productId}`);
       const data = await result.json();
       return data;
@@ -60,13 +59,27 @@ export const ProductEditPage = () => {
     if(isLoading) return 'loading'
 
     return (
-        <div className='product-edit-container'>
-            <img className='featuredProductImg' src={product.image} alt="" />
-            <input value={name} onChange={(e) => setName(e.target.value)} className="searchBar" type="text"/>
-            <input value={description} onChange={(e) => setDescription(e.target.value)} className="searchBar" type="text"/>
-            <input value={category} onChange={(e) => setCategory(e.target.value)} className="searchBar" type="text"/>
-            <input value={price} onChange={(e) => setPrice(e.target.value)} className="searchBar" type="text"/>
-            <button onClick={submitChanges} className='glow-on-hover'>Submit</button>
+        <div className="product-edit-page">
+            <div className='product-edit-container'>
+                <img src={product.image} alt="" />
+                <div className='product-prop-container'>
+                    <label>Name: </label>
+                    <input value={name} onChange={(e) => setName(e.target.value)} className="searchBar" type="text"/>
+                </div>
+                <div className='product-prop-container'>
+                    <label>Description: </label>
+                    <input value={description} onChange={(e) => setDescription(e.target.value)} className="searchBar" type="text"/>
+                </div>
+                <div className='product-prop-container'>
+                    <label>Category: </label>
+                    <input value={category} onChange={(e) => setCategory(e.target.value)} className="searchBar" type="text"/>
+                </div>
+                <div className='product-prop-container'>
+                    <label>Price: </label>
+                    <input value={price} onChange={(e) => setPrice(e.target.value)} className="searchBar" type="text"/>
+                </div>
+                <button onClick={submitChanges} className='glow-on-hover'>Submit</button>
+            </div>
         </div>
     )
 }
