@@ -9,10 +9,15 @@ export function Cart({products, toggleCart}){
 
     const getUser = async () => {
         const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        if(user === null || user === undefined){
+            return;
+        }
         setUser(user);
 
         const cartProductsIds = user.cart.map((cartProduct) => cartProduct.productId);
-        const productsInCart = products.filter(product => cartProductsIds.includes(product.id));
+
+        const productsInCart = cartProductsIds.map(id => products.find((product) => product.id === id));
+
         const productQuantities = user.cart.map((cartProduct) => cartProduct.quantity);
 
         const cartProducts =  productsInCart.map((product, index) => ({product, quantity: productQuantities[index]}));
@@ -31,7 +36,7 @@ export function Cart({products, toggleCart}){
         <div id="cart-container">
             <div id="cart-products">
                 {cartProducts.map((cartProduct) => 
-                    <CartProduct key={cartProduct.product.id} product={cartProduct.product} quantity={cartProduct.quantity} toggleCart={toggleCart}/>
+                    <CartProduct key={cartProduct.product.id} productId={cartProduct.product.id} product={cartProduct.product} productQuantity={cartProduct.quantity} toggleCart={toggleCart}/>
                 )}
             </div>
             <div id="cart-summary">
