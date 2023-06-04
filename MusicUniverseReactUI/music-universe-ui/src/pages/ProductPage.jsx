@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { ReviewCard } from '../components/ReviewCard';
+import { useNavigate } from "react-router-dom";
 
 export const ProductPage = ({toggleCart, onAdd}) => {
   const [content, setContent] = useState('');
@@ -11,6 +12,9 @@ export const ProductPage = ({toggleCart, onAdd}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [quantity, setQuantity] = useState(0);
   const [showCartMsg, setShowCartMsg] = useState(false);
+  const [adminButtons, showAdminButtons] = useState(false);
+
+  const navigate = useNavigate();
 
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
@@ -29,8 +33,29 @@ export const ProductPage = ({toggleCart, onAdd}) => {
     setIsLoading(false);
   }
 
+  const fetchUsers = async () => {
+    const result = await fetch('http://localhost:5000/users/');
+    const data = await result.json();
+    
+    return data;
+  }
+
+  const getUser = async () =>{
+    const users = await fetchUsers();    
+    const user = users.find((user) =>{
+      if(user.isActive == true){
+        return user;
+      }
+    });
+
+    if(user.role === "admin"){
+      showAdminButtons(true);
+    }
+  }
+
   useEffect(() => {
     getProduct();
+    getUser();
   }, [])
 
   function changeQuantity(sign){
@@ -40,6 +65,17 @@ export const ProductPage = ({toggleCart, onAdd}) => {
     else if(sign === '-' && quantity > 0){
         setQuantity(quantity-1);
     }
+  }
+
+  async function deleteProduct(){
+    const result = await fetch(`http://localhost:5000/products/${product.id}`, {
+      method: "DELETE", 
+      headers: {
+        "content-type": "application/json"
+      }
+    });
+
+    navigate('/catalog');
   }
 
   function toggleCartMsg(){
@@ -92,6 +128,12 @@ export const ProductPage = ({toggleCart, onAdd}) => {
     <div className='product-page'>
         <div className="product-info-container">
           <div className="product-page-product">
+            {adminButtons &&
+            <div className='admin-bar'>
+              <button onClick={() => navigate(`/edit/product/${product.id}`)} className="catalog-cart-button" > Edit</button>
+              <button className='delete-product-button' onClick={deleteProduct}> Delete</button>
+            </div>
+            }
             <img src={product.image} alt="aaa" />
           </div>
           <div className="product-details-section">
