@@ -42,9 +42,23 @@ function App() {
       return;
     }
 
-    const userCart = user.cart;
-    userCart.push({productId: id, quantity: quantity});
-    const updatedUser = {...user, cart: userCart};
+    const isInCart = user.cart.some((cartProduct) => cartProduct.productId === id);
+    let updatedCart;
+    if(isInCart){
+      let quantityAddition = quantity;
+      updatedCart = user.cart.map((cartProduct) =>{
+        if(cartProduct.productId == id){
+          return { ...cartProduct, quantity: cartProduct.quantity+quantityAddition};
+        }
+        return cartProduct;
+      });
+    }
+    else{
+      updatedCart = [...user.cart];
+      updatedCart.push({productId: id, quantity: quantity});
+    }
+
+    const updatedUser = {...user, cart: updatedCart};
 
     const result = await fetch(`http://localhost:5000/users/${user.id}`, {
       method: "PUT", 
