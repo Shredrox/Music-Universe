@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CartProduct } from "./CartProduct";
 import cartIcon from '../assets/cartBtnIcon.png';
 
-export function Cart({products, toggleCart}){
-    const [user, setUser] = useState({});
+export function Cart({products}){
     const [totalPrice, setTotalPrice] = useState(0);
     const [cartProducts, setCartProducts] = useState([]);
 
@@ -12,7 +11,6 @@ export function Cart({products, toggleCart}){
         if(user === null || user === undefined){
             return;
         }
-        setUser(user);
 
         const cartProductsIds = user.cart.map((cartProduct) => cartProduct.productId);
 
@@ -29,14 +27,40 @@ export function Cart({products, toggleCart}){
     }
 
     useEffect(() =>{
-        getUser();      
+        getUser();    
     }, [])
+
+    const removeFromCart = async (id) => {
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        if(user === null || user === undefined){
+          return;
+        }
+    
+        const updateCart = user.cart.filter((cartProduct) => cartProduct.productId !== id);
+        const updatedUser = {...user, cart: updateCart};
+    
+        const result = await fetch(`http://localhost:5000/users/${user.id}`, {
+          method: "PUT", 
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(updatedUser)
+        });
+    
+        localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
+        getUser();
+      }
 
     return (
         <div id="cart-container">
             <div id="cart-products">
                 {cartProducts.map((cartProduct) => 
-                    <CartProduct key={cartProduct.product.id} productId={cartProduct.product.id} product={cartProduct.product} productQuantity={cartProduct.quantity} toggleCart={toggleCart}/>
+                    <CartProduct 
+                    key={cartProduct.product.id} 
+                    productId={cartProduct.product.id} 
+                    product={cartProduct.product} 
+                    productQuantity={cartProduct.quantity} 
+                    toggleCart={removeFromCart}/>
                 )}
             </div>
             <div id="cart-summary">

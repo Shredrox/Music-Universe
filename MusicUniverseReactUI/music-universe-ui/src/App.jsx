@@ -38,6 +38,9 @@ function App() {
 
   const addToCart = async (id, quantity) => {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    if(user === null || user === undefined){
+      return;
+    }
 
     const userCart = user.cart;
     userCart.push({productId: id, quantity: quantity});
@@ -50,6 +53,8 @@ function App() {
       },
       body: JSON.stringify(updatedUser)
     });
+
+    localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
   }
 
   const addReview = async(id, review) =>{
@@ -86,7 +91,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/catalog" element={<Catalog toggleCart={addToCart}/>} />
-        <Route path="/cart" element={<CartPage products={products} toggleCart={addToCart}/>} />
+        <Route path="/cart" element={<CartPage products={products}/>} />
         <Route path="/product/:id" element={<ProductPage toggleCart={addToCart} onAdd={addReview}/> } />
         <Route path="/edit/product/:id" element={<ProductEditPage/> } /> 
       </Routes>
