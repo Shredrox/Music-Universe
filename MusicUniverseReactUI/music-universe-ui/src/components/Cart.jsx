@@ -7,21 +7,8 @@ export function Cart({products, toggleCart}){
     const [totalPrice, setTotalPrice] = useState(0);
     const [cartProducts, setCartProducts] = useState([]);
 
-    const fetchUsers = async () => {
-        const result = await fetch('http://localhost:5000/users/');
-        const data = await result.json();
-        
-        return data;
-    }
-
     const getUser = async () => {
-        const users = await fetchUsers();    
-        const user = users.find((user) =>{
-            if(user.isActive == true){
-                return user;
-            }
-        });
-        
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
         setUser(user);
 
         const cartProductsIds = user.cart.map((cartProduct) => cartProduct.productId);

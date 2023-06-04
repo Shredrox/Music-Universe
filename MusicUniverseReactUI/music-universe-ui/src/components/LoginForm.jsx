@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import Axios from 'axios';
 
 export function LoginForm({changeForm, closeForm}){
     const [email, setEmail] = useState('');
@@ -14,24 +13,17 @@ export function LoginForm({changeForm, closeForm}){
     }
     
     const login = async(input) =>{
-        const users = await fetchUsers();    
-        const user = users.find((user) =>{
-         if(user.email === input.email && user.password === input.password){
-           return user;
-         }
-        });
-    
-        const loggedInUser = { ...user, isActive: true};
+      const users = await fetchUsers();    
+      const user = users.find((user) =>{
+        if(user.email === input.email && user.password === input.password){
+          return user;
+        }
+      });
 
-        const result = await fetch(`http://localhost:5000/users/${loggedInUser.id}`, {
-          method: "PUT", 
-          headers: {
-            "content-type": "application/json"
-          },
-          body: JSON.stringify(loggedInUser)
-        });
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
 
-        closeForm(loggedInUser.name);
+      closeForm(user.name);
+      window.location.reload();
     }
 
     const submitData = (event) => {
@@ -42,13 +34,6 @@ export function LoginForm({changeForm, closeForm}){
         };
 
         login(data);
-        // Axios.post('https://localhost:7182/api/Users/Login', data)
-        // .then(response => {
-        //     console.log(response.data);
-        // })
-        // .catch(error => {
-        //      console.error(error);
-        // });
     }
 
     return (

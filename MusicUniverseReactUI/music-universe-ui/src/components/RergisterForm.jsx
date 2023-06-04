@@ -1,20 +1,11 @@
-import Axios from 'axios';
 import { useState } from "react";
 
 export function RegisterForm({changeForm, closeForm}){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const fetchUsers = async () => {
-        const result = await fetch('http://localhost:5000/users/');
-        const data = await result.json();
-        
-        return data;
-    }
     
     const register = async(input) =>{
-        const users = await fetchUsers();    
         const id = Math.random();
 
         const newUser = {
@@ -43,13 +34,6 @@ export function RegisterForm({changeForm, closeForm}){
           password: password
         };
 
-        // Axios.post('https://localhost:7182/api/Users/Register', data)
-        // .then(response => {
-        //     console.log(response.data);
-        // })
-        // .catch(error => {
-        //      console.error(error);
-        // });
         register(data);
         closeForm(name);
     }
@@ -66,6 +50,5 @@ export function RegisterForm({changeForm, closeForm}){
             <button className='glow-on-hover' type="submit" onClick={submitData}>Sign Up</button>
             <a className='register-form-login-button' onClick={changeForm}>Already have an account? Log In</a>
         </form>
-            
     )
 }

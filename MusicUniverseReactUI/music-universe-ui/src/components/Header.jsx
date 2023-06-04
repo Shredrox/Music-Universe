@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RergisterForm";
@@ -8,12 +8,25 @@ import { SearchBarResultList } from './SearchBarResultList';
 import { FormModal } from "./FormModal";
 import cartIcon from '../assets/cartBtnIcon.png';
 
-export function Header(){
+export function Header({setLoggedInUser, user}){
     const [modalIsOpen, setIsOpen] = useState(false);  
     const [modalContent, setModalContent] = useState(<div></div>);
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [username,setUsername] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
+    
+    const getUser = async () =>{
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        if(user !== null && user !== undefined){
+            setButtonsVisible(false);
+            setLoggedInUser(user);
+            setUsername(user.name);
+        }
+    }
+
+    useEffect(() => {
+        getUser();
+    }, [])
 
     function openModal(content) {
         setIsOpen(true);
@@ -34,39 +47,20 @@ export function Header(){
         setModalContent(<RegisterForm changeForm={changeModalFormToLogin} closeForm={closeModalAndUpdateHeader}></RegisterForm>);
     }
 
-    function closeModalAndUpdateHeader(username) {
+    function closeModalAndUpdateHeader(user) {
         setIsOpen(false);
         document.body.style.overflow = 'unset';
         setButtonsVisible(false);
-        setUsername(username);
+
+        setUsername(user.name);
+        setLoggedInUser(user);
     }
 
     async function logout() {
-        const fetchUsers = async () => {
-            const result = await fetch('http://localhost:5000/users/');
-            const data = await result.json();
-            
-            return data;
-        }
-
-        const users = await fetchUsers();    
-        const user = users.find((user) =>{
-         if(user.isActive == true){
-           return user;
-         }
-        });
-
-        const loggingOutUser = { ...user, isActive: false};
-
-        const result = await fetch(`http://localhost:5000/users/${loggingOutUser.id}`, {
-          method: "PUT", 
-          headers: {
-            "content-type": "application/json"
-          },
-          body: JSON.stringify(loggingOutUser)
-        });
-
+        localStorage.clear();
         setButtonsVisible(true);
+        window.location.reload();
+        //setLoggedInUser({});
     }
 
     return(

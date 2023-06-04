@@ -6,10 +6,12 @@ import { Routes, Route } from 'react-router-dom'
 import { Catalog } from './pages/Catalog'
 import { CartPage } from './pages/CartPage'
 import { ProductPage } from './pages/ProductPage'
+import { ProductEditPage } from './pages/ProductEditPage'
 
 function App() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   const fetchProducts = async () => {
     const result = await fetch('http://localhost:5000/products/');
@@ -35,19 +37,7 @@ function App() {
   }
 
   const addToCart = async (id, quantity) => {
-    const fetchUsers = async () => {
-      const result = await fetch('http://localhost:5000/users/');
-      const data = await result.json();
-      
-      return data;
-    }
-
-    const users = await fetchUsers();    
-    const user = users.find((user) =>{
-      if(user.isActive == true){
-        return user;
-      }
-    });
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
 
     const userCart = user.cart;
     userCart.push({productId: id, quantity: quantity});
@@ -92,12 +82,13 @@ function App() {
 
   return (
     <>
-      <Header/>
+      <Header setLoggedInUser={setLoggedInUser} user={loggedInUser}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/catalog" element={<Catalog products={products} toggleCart={addToCart}/>} />
+        <Route path="/catalog" element={<Catalog toggleCart={addToCart}/>} />
         <Route path="/cart" element={<CartPage products={products} toggleCart={addToCart}/>} />
         <Route path="/product/:id" element={<ProductPage toggleCart={addToCart} onAdd={addReview}/> } />
+        <Route path="/edit/product/:id" element={<ProductEditPage/> } /> 
       </Routes>
     </>
   )

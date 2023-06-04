@@ -33,23 +33,12 @@ export const ProductPage = ({toggleCart, onAdd}) => {
     setIsLoading(false);
   }
 
-  const fetchUsers = async () => {
-    const result = await fetch('http://localhost:5000/users/');
-    const data = await result.json();
-    
-    return data;
-  }
-
   const getUser = async () =>{
-    const users = await fetchUsers();    
-    const user = users.find((user) =>{
-      if(user.isActive == true){
-        return user;
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    if(user !== null && user !== undefined){
+      if(user.role === "admin"){
+        showAdminButtons(true);
       }
-    });
-
-    if(user.role === "admin"){
-      showAdminButtons(true);
     }
   }
 
