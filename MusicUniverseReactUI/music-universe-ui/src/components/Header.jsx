@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RergisterForm";
+import { SearchBar } from "./SearchBar";
+import { SearchBarResultList } from './SearchBarResultList';
 import { FormModal } from "./FormModal";
 import cartIcon from '../assets/cartBtnIcon.png';
 
@@ -11,6 +13,7 @@ export function Header(){
     const [modalContent, setModalContent] = useState(<div></div>);
     const [buttonsVisible, setButtonsVisible] = useState(true);
     const [username,setUsername] = useState('');
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     function openModal(content) {
         setIsOpen(true);
@@ -94,8 +97,11 @@ export function Header(){
                 </ul>
             </nav>
 
-            <input className="searchBar" type="text" placeholder="Search.."/>
-
+            <div className='search-container'>
+                <SearchBar setFilteredProducts={setFilteredProducts}></SearchBar>
+                <SearchBarResultList filteredProducts={filteredProducts}></SearchBarResultList>
+            </div>
+            
             {buttonsVisible &&
             <div className="button-container">
                 <button onClick={() => openModal(<LoginForm changeForm={changeModalFormToRegister} closeForm={closeModalAndUpdateHeader}></LoginForm>)} className="login-button" role="button">

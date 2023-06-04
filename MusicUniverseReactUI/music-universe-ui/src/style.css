@@ -32,6 +32,36 @@ a:hover{
     align-items: center;
 }
 
+.search-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.search-results{
+    position: absolute;
+    background-color: #244f99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    top: 31px;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+.smol{
+    width: 100px;
+    height: 50px;
+    object-fit: scale-down;
+}
+
 .navigation{
     display: flex;
     justify-content: left;
