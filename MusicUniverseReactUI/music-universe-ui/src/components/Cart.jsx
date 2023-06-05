@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { CartProduct } from "./CartProduct";
 import cartIcon from '../assets/cartBtnIcon.png';
+import { useNavigate } from "react-router-dom";
 
 export function Cart({products}){
     const [totalPrice, setTotalPrice] = useState(0);
     const [cartProducts, setCartProducts] = useState([]);
+
+    const navigate = useNavigate();
 
     const getUser = async () => {
         const user = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -74,9 +77,8 @@ export function Cart({products}){
                 </div> 
                 <div className="price-checkout-container">
                     <label>Total Price: ${totalPrice}</label>
-                    <button className="nav-button">Checkout</button>
+                    <button onClick={cartProducts.length > 0 ? () => navigate('/order') : null} className="nav-button">Checkout</button>
                 </div>
-                
             </div>
         </div>
     )

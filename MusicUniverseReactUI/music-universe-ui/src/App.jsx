@@ -7,6 +7,7 @@ import { Catalog } from './pages/Catalog'
 import { CartPage } from './pages/CartPage'
 import { ProductPage } from './pages/ProductPage'
 import { ProductEditPage } from './pages/ProductEditPage'
+import { OrderPage } from './pages/OrderPage'
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -106,6 +107,7 @@ function App() {
         <Route path="/" element={<Home products={products}/>}/>
         <Route path="/catalog" element={<Catalog toggleCart={addToCart}/>} />
         <Route path="/cart" element={<CartPage products={products}/>} />
+        <Route path="/order" element={<OrderPage products={products}/>} />
         <Route path="/product/:id" element={<ProductPage toggleCart={addToCart} onAdd={addReview}/> } />
         <Route path="/edit/product/:id" element={<ProductEditPage/> } /> 
       </Routes>

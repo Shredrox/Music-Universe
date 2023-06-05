@@ -1411,7 +1411,7 @@ li{
 }
 
 /*PRODUCT EDIT PAGE*/
-.product-edit-page{
+.gradient-page-background{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -1457,4 +1457,64 @@ li{
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+/*ORDER PAGE*/
+.order-info-container{
+    width: 500px;
+    height: fit-content;
+    color: white;
+    margin: 3rem;
+    background-color: #351f854f;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.order-form{
+    background-color: #0c132e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+.order-form label{
+    width: 97%;
+    text-align: left;
+}
+
+.order-input{
+    background-color: #162352;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    border-color: #162352;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.order-finish-text{
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.order-error{
+    color: red;
 }
