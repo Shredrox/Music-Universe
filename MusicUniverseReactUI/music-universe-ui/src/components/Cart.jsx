@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export function Cart({products}){
     const [totalPrice, setTotalPrice] = useState(0);
     const [cartProducts, setCartProducts] = useState([]);
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
 
     const navigate = useNavigate();
 
@@ -14,6 +15,8 @@ export function Cart({products}){
         if(user === null || user === undefined){
             return;
         }
+
+        setUserLoggedIn(true);
 
         const cartProductsIds = user.cart.map((cartProduct) => cartProduct.productId);
 
@@ -67,7 +70,7 @@ export function Cart({products}){
                         toggleCart={removeFromCart}/>
                         )
                     :
-                    <label className="cart-empty-label">Cart Empty. <br/> Log in to add products</label>
+                    <label className="cart-empty-label">Cart Empty. <br/> {!userLoggedIn && <span>Log in to add products</span>} </label>
                 }
             </div>
             <div id="cart-summary">
