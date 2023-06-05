@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 
 export function Catalog({toggleCart}){
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [filterOn, setFilterOn] = useState(false);
 
     const fetchProducts = async () => {
         const result = await fetch('http://localhost:5000/products/');
@@ -25,8 +27,8 @@ export function Catalog({toggleCart}){
     return (
         <div id="catalog-section">
             <div id="catalog-container">
-                <CategoriesTab/>
-                <CatalogTab products={products} toggleCart={toggleCart}/>
+                <CategoriesTab products={products} setFilteredProducts={setFilteredProducts} setFilterOn={setFilterOn}/>
+                <CatalogTab products={products} filteredProducts={filteredProducts} toggleCart={toggleCart} filterOn={filterOn}/>
             </div>
         </div>
     )
