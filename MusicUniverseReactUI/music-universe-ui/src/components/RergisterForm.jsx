@@ -6,7 +6,7 @@ export function RegisterForm({changeForm, closeForm}){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
-    const [inputError, setInputError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
     const isFormValid = name && email && password;
 
@@ -23,14 +23,18 @@ export function RegisterForm({changeForm, closeForm}){
       const users = await fetchUsers();    
       const user = users.find((user) =>{
         if(user.name === name){
+          setError(true);
+          setErrorMsg("Username already taken.");
+          return user;
+        }
+        else if(user.email === email){
+          setError(true);
+          setErrorMsg("Email already in use.");
           return user;
         }
       });
 
-      console.log(user);
-
       if(user !== null && user !== undefined){
-        setError(true);
         return;
       }
 
@@ -61,7 +65,8 @@ export function RegisterForm({changeForm, closeForm}){
       event.preventDefault()
 
       if(!isFormValid){
-        setInputError(true);
+        setError(true);
+        setErrorMsg("Fill all the fields above.");
         return;
       }
 
@@ -78,13 +83,12 @@ export function RegisterForm({changeForm, closeForm}){
       <form className="register">
           REGISTER
           <label className='form-text' htmlFor="name">Name: </label>
-          <input className='input' maxLength="20" type="text" id="name" name="name" value={name} onChange={(e) => {setName(e.target.value); setError(false); setInputError(false);}}/><br/>
+          <input className='input' maxLength="20" type="text" id="name" name="name" value={name} onChange={(e) => {setName(e.target.value); setError(false);}}/><br/>
           <label className='form-text' htmlFor="email">Email: </label>
-          <input className='input' type="email" id="email" name="email" value={email} onChange={(e) => {setEmail(e.target.value); setError(false); setInputError(false);}}/><br/>
+          <input className='input' type="email" id="email" name="email" value={email} onChange={(e) => {setEmail(e.target.value); setError(false);}}/><br/>
           <label className='form-text' htmlFor="email">Password: </label>
-          <input className='input' type="password" id="password" name="password" value={password} onChange={(e) => {setPassword(e.target.value); setError(false); setInputError(false);}}/><br/>
-          {error && <span className="error-text">Username already taken.</span>}
-          {inputError && <span className="error-text">Fill all the fields above.</span>}
+          <input className='input' type="password" id="password" name="password" value={password} onChange={(e) => {setPassword(e.target.value); setError(false);}}/><br/>
+          {error && <span className="error-text">{errorMsg}</span>}
           <button className='glow-on-hover' type="submit" onClick={submitData}>Sign Up</button>
           <a className='register-form-login-button' onClick={changeForm}>Already have an account? Log In</a>
       </form>
