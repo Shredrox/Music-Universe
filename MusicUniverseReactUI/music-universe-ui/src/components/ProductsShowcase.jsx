@@ -34,7 +34,7 @@ export function ProductsShowcase({products}){
                   slidesToSlide={1}
                   centerMode={false}
                   itemClass="carouselItem">
-                  {products.map((product) => 
+                  {products.slice(0, 5).map((product) => 
                     <ProductCard key={product.id} product={product}/>
                   )}
                 </Carousel>    
