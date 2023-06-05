@@ -5,7 +5,7 @@
       "name": "Guitar Bre 2",
       "description": "mnogo hubavo",
       "price": 1200,
-      "category": "6-string",
+      "category": "6 String",
       "image": "/src/assets/mishaGuitar.png",
       "reviews": [
         {
@@ -69,7 +69,7 @@
       "name": "Super Kitara 2",
       "description": "mnogo hubavo",
       "price": 500,
-      "category": "6-string",
+      "category": "6 String",
       "image": "/src/assets/guitar4.png",
       "reviews": [
         {
@@ -85,7 +85,7 @@
       "name": "Super Kitara 3",
       "description": "mnogo hubavo",
       "price": 600,
-      "category": "6-string",
+      "category": "6 String",
       "image": "/src/assets/guitar4.png",
       "reviews": [
         {
@@ -101,7 +101,7 @@
       "name": "Mnogo Hubava Kitara",
       "description": "mnogo hubavo",
       "price": 900,
-      "category": "6-string",
+      "category": "7 String",
       "image": "/src/assets/mishaGuitar.png",
       "reviews": [
         {
@@ -117,7 +117,7 @@
       "name": "Mnogo Hubava Kitara 2",
       "description": "mnogo hubavo",
       "price": 7100,
-      "category": "6-string",
+      "category": "7 String",
       "image": "/src/assets/guitar4.png",
       "reviews": [
         {
