@@ -24,6 +24,11 @@ export function CategoriesTab({products, setFilteredProducts, setFilterOn}){
         { id: 1, category: "6 String" },
         { id: 2, category: "7 String" },
         { id: 3, category: "8 String" },
+        { id: 4, category: "Single Cut" },
+        { id: 5, category: "Fanfret" },
+        { id: 6, category: "Headless" },
+        { id: 7, category: "Baritone" },
+        { id: 8, category: "Acoustic" },
     ];
 
     return (
