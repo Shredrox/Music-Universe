@@ -59,7 +59,7 @@ export const ProductEditPage = () => {
     if(isLoading) return 'loading'
 
     return (
-        <div className="product-edit-page">
+        <div className="gradient-page-background">
             <div className='product-edit-container'>
                 <img src={product.image} alt="" />
                 <div className='product-prop-container'>
