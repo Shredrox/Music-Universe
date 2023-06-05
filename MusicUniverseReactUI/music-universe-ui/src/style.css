@@ -715,7 +715,7 @@ li{
     flex-direction: column;
     margin-right: 2rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 60%;
+    height: fit-content;
     background-color: #0d233b;
     color: white;
     padding: 1rem;
@@ -723,7 +723,6 @@ li{
     font-size: 1.5rem;
 }
 
-/* CSS */
 .category-button {
   align-items: center;
   appearance: none;
