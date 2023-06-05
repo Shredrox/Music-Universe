@@ -49,24 +49,34 @@ export function Cart({products}){
     
         localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
         getUser();
-      }
+    }
 
     return (
         <div id="cart-container">
             <div id="cart-products">
-                {cartProducts.map((cartProduct) => 
-                    <CartProduct 
-                    key={cartProduct.product.id} 
-                    productId={cartProduct.product.id} 
-                    product={cartProduct.product} 
-                    productQuantity={cartProduct.quantity} 
-                    toggleCart={removeFromCart}/>
-                )}
+                { cartProducts.length > 0 ? 
+                    cartProducts.map((cartProduct) => 
+                        <CartProduct 
+                        key={cartProduct.product.id} 
+                        productId={cartProduct.product.id} 
+                        product={cartProduct.product} 
+                        productQuantity={cartProduct.quantity} 
+                        toggleCart={removeFromCart}/>
+                        )
+                    :
+                    <label className="cart-empty-label">Cart Empty. <br/> Log in to add products</label>
+                }
             </div>
             <div id="cart-summary">
-                <span>Your Cart<img src={cartIcon} alt="" /></span> 
-                <label>Total Price: ${totalPrice}</label>
-                <button className="nav-button">Checkout</button>
+                <div className="your-cart-container">
+                    Your Cart
+                    <img src={cartIcon} alt="" />
+                </div> 
+                <div className="price-checkout-container">
+                    <label>Total Price: ${totalPrice}</label>
+                    <button className="nav-button">Checkout</button>
+                </div>
+                
             </div>
         </div>
     )

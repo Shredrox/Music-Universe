@@ -970,6 +970,14 @@ li{
     gap: 5px;
 }
 
+.quantity-col-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+}
+
 .quantity-buttons-container{
     display: flex;
     flex-direction: column;
@@ -1074,6 +1082,7 @@ li{
     width: 70%;
     border-radius: 1.5rem;
     padding: 2rem;
+    gap: 2rem;
     background: rgb(2,0,36);
     background: linear-gradient(31deg, rgba(2,0,36,1) 0%, rgba(4,12,33,1) 0%, rgba(32,12,70,1) 100%); 
 }
@@ -1085,48 +1094,97 @@ li{
     height: 100%;
     width: 80%;
     overflow-y: scroll;
+    overflow: auto;
 }
 
 #cart-summary{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     color: white;
     font-size: 2rem;
+    min-width: fit-content;
+    padding: 1rem;
+    box-sizing: border-box;
     width: 20%;
-    height: 100%;
+    height: fit-content;
     background-color: #0d233b;
     border-radius: 1rem;
+    gap: 1rem;
+}
+
+.cart-empty-label{
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: #1c4d81;
+    border-radius: 1rem;
+}
+
+.price-checkout-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.your-cart-container{
+    background-color: #1c4d81;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    
+}
+
+.your-cart-container img{
+    height: 40px;
 }
 
 .cart-product-card{
     background-color: #0d233b;
-    height: 200px;
-    width: 97%;
-    margin-right: 2rem;
+    min-height: 150px;
+    width: 99%;
     border-radius: 1rem;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
     padding: 1rem 0 1rem 0;
+    box-sizing: border-box;
+}
+
+.cart-product-info{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: flex-start;
 }
 
 .cart-product{
     background-color: #0a1121;
-    width: 350px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
     border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-product img{
+    max-height: 6rem;
+    max-width: 14rem;
+    object-fit: scale-down;
 }
 
 .card-product-name{
     color: white;
     height: 15%;
-    display: flex;
-    font-size: 2rem;
-    justify-content: center;
-    align-items: center;
+    font-size: 1.75rem;
 }
   
 

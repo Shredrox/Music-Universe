@@ -50,24 +50,28 @@ export const CartProduct = ({productId, product, productQuantity, toggleCart}) =
   return (
     <div className="cart-product-card">
       <div className="cart-product">
-          <img className="featuredProductImg" src={product.image} alt="aaa" />
+          <img src={product.image} alt="aaa" />
       </div>
-      <p className="card-product-name">
-          {product.name}
-      </p>
-      <p className="card-product-name">
-          Price: ${product.price}
-      </p>
-      <p className="card-product-name">
-          Quantity:
-      </p>
-      <div className="quantity-container">
+      <div className="cart-product-info">
+        <p className="card-product-name">
+            {product.name}
+        </p>
+        <p className="card-product-name">
+            Price: ${product.price}
+        </p>
+      </div>
+     
+      <div className="quantity-col-container">
+        Quantity:
+        <div className="quantity-container">
           {quantity}
           <div className="quantity-buttons-container">
             <button onClick={() => { changeQuantity('+')}} className="quantity-button">+</button>
             <button onClick={() => { changeQuantity('-')}} className="quantity-button">-</button>
           </div>
+        </div>
       </div>
+      
       <button className="cart-button" onClick={() => toggleCart(product.id)}>
           X
       </button>
