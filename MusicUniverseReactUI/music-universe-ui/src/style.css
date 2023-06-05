@@ -840,6 +840,13 @@ li{
     background: #2a5580;
 }
 
+.catalog-product-add-to-cart-container{
+    display: flex;
+    justify-content: center;
+    color: white;
+    gap: 0.5rem;
+}
+
 .catalog-cart-button {
     appearance: none;
     backface-visibility: hidden;
