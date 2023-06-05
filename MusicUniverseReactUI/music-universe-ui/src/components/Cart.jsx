@@ -67,7 +67,8 @@ export function Cart({products}){
                         productId={cartProduct.product.id} 
                         product={cartProduct.product} 
                         productQuantity={cartProduct.quantity} 
-                        toggleCart={removeFromCart}/>
+                        toggleCart={removeFromCart}
+                        updateUser={getUser}/>
                         )
                     :
                     <label className="cart-empty-label">Cart Empty. <br/> {!userLoggedIn && <span>Log in to add products</span>} </label>

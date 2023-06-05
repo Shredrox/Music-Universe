@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-export const CartProduct = ({productId, product, productQuantity, toggleCart}) => {
+export const CartProduct = ({productId, product, productQuantity, toggleCart, updateUser}) => {
   const [quantity, setQuantity] = useState(productQuantity);
 
   async function changeQuantity(sign){
@@ -45,6 +45,7 @@ export const CartProduct = ({productId, product, productQuantity, toggleCart}) =
     });
 
     localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
+    updateUser();
   }
 
   return (
