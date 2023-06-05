@@ -85,7 +85,7 @@ export const OrderPage = ({products}) => {
                     <input value={creditCardNumber} type="text" className='order-input' onChange={(e) => setCreditCardNumber(e.target.value)}/>
                     <label>Phone Number: </label>
                     <input value={phoneNumber} type="text" className='order-input' onChange={(e) => setPhoneNumber(e.target.value)}/>
-                    {error && <span className='order-error'>Fill all the fields above.</span>}
+                    {error && <span className='error-text'>Fill all the fields above.</span>}
                     Total Price: ${totalPrice}
                     <button onClick={finishOrder} className='glow-on-hover' >Finish Order</button>
                 </div>

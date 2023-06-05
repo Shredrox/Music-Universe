@@ -16,6 +16,10 @@ a:hover{
     color: lightblue;
 }
 
+.error-text{
+    color: red;
+}
+
 #loading-screen{
     background-color: #050e1d;
     width: 100%;
@@ -1513,8 +1517,4 @@ li{
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.order-error{
-    color: red;
 }
