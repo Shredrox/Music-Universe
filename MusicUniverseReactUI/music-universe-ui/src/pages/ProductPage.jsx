@@ -80,20 +80,7 @@ export const ProductPage = ({toggleCart, onAdd}) => {
     const id = Math.random();
     let name = 'Anonymous';
 
-    const fetchUsers = async () => {
-      const result = await fetch('http://localhost:5000/users/');
-      const data = await result.json();
-      
-      return data;
-    }
-
-    const users = await fetchUsers();    
-    const user = users.find((user) =>{
-    if(user.isActive == true){
-      return user;
-    }
-    });
-
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
     if(user !== undefined && user !== null){
       name = user.name;
     }
