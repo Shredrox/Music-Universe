@@ -156,6 +156,7 @@ export const ProductPage = ({toggleCart, onAdd}) => {
         <div className="review-section">
           <div className="review-list">
             Reviews:
+            {reviews.length == 0 && <h3>No reviews for this product.</h3>}
             {reviews.map((review) => 
               <ReviewCard key={review.reviewId} review={review}/>
             )}
