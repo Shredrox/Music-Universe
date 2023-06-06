@@ -30,7 +30,8 @@ export function CatalogProduct({product, toggleCart}){
             </p>
             <div className='catalog-product-add-to-cart-container'>
                 <button 
-                    className="catalog-cart-button" 
+                    className="catalog-cart-button"
+                    disabled={localStorage.getItem('loggedInUser') === null} 
                     onClick={(e) =>{stopPropagation(e); toggleCart(product.id, 1); toggleCartMsg()} }>
                     Add To Cart
                 </button>

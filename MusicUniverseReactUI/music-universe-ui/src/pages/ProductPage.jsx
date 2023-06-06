@@ -128,7 +128,8 @@ export const ProductPage = ({toggleCart, onAdd}) => {
                 </div>
                 <button 
                   className="catalog-cart-button" 
-                  onClick={() =>{toggleCart(product.id, quantity); setProduct({...product, inCart: !product.inCart}); setQuantity(0); toggleCartMsg(); } }>
+                  disabled={localStorage.getItem('loggedInUser') === null || quantity === 0 }
+                  onClick={() =>{toggleCart(product.id, quantity); setQuantity(0); toggleCartMsg(); } }>
                   Add To Cart 
                 </button>
                 {showCartMsg &&
