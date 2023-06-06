@@ -9,7 +9,7 @@ export const SearchBarResultList = ({filteredProducts}) => {
       {filteredProducts.length > 0 &&
       <div className="search-results">
           {filteredProducts.map((product) =>
-              <div onClick={() => {navigate(`/product/${product.id}`) }} className='search-result' key={product.id}>
+              <div onClick={() => {navigate(`/product/${product.id}`); window.location.reload(); }} className='search-result' key={product.id}>
                 <img className='smol' src={product.image} alt="" />
                 {product.name}
               </div>
