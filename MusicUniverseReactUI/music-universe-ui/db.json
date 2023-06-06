@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "id": 2,
-      "name": "Guitar Bre 2",
-      "description": "mnogo hubavo",
-      "price": 1200,
-      "category": "6 String",
-      "image": "/src/assets/mishaGuitar.png",
+      "id": 1,
+      "name": "Juggernaut ET7",
+      "description": "The Pro Series Signature Misha Mansoor Juggernaut ET7 offers a 26.5” scale length, basswood body and caramelized bolt-on maple neck with rock-solid graphite reinforcement, wrap-around heel and oiled back finish for greater playing comfort.",
+      "price": 1569,
+      "category": "7 String",
+      "image": "/src/assets/misha7string.png",
       "reviews": [
         {
           "reviewerUsername": "Hehe",
@@ -17,113 +17,121 @@
         {
           "reviewerUsername": "admin",
           "reviewId": 0.5459485615183357,
-          "content": "test be",
-          "rating": "1"
-        },
-        {
-          "reviewerUsername": "Anonymous",
-          "reviewId": 0.8927545536761161,
-          "content": "PLS",
-          "rating": "1"
-        },
-        {
-          "reviewerUsername": "aetjaetjaetjaetkhaet",
-          "reviewId": 0.3348500514982654,
-          "content": "NICE",
+          "content": "Very nice guitar!",
           "rating": "420"
-        },
-        {
-          "reviewerUsername": "aetjaetjaetjaetkhaet",
-          "reviewId": 0.7495116469709773,
-          "content": "ABE EI",
-          "rating": "2154125"
-        },
-        {
-          "reviewerUsername": "Anonymous",
-          "reviewId": 0.5107113996720529,
-          "content": "tjaerjaet",
-          "rating": "125"
-        },
-        {
-          "reviewerUsername": "test",
-          "reviewId": 0.7185837071372317,
-          "content": "uhgawiugnaiuwn",
-          "rating": "12515"
-        },
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Majesty 6",
+      "description": "One of the most well-balanced and innovative instruments available, the Majesty features a neck-through-body design, unparalleled upper fret access, ergonomic in-line control knob placement, and an advanced pickup switching system, which effectively eliminates the delay between pickup selection. ",
+      "price": 3899,
+      "category": "Electric",
+      "image": "/src/assets/musicMan6string.png",
+      "reviews": [
         {
           "reviewerUsername": "Anonymous",
-          "reviewId": 0.009314138553331741,
-          "content": "atjaertjaet",
-          "rating": "1251265"
-        },
-        {
-          "reviewerUsername": "admin",
-          "reviewId": 0.32608135065811295,
-          "content": "TEST",
-          "rating": "123"
+          "reviewId": 0.7369480249615595,
+          "content": "One of the best guitars ever made.",
+          "rating": "100"
         }
       ]
     },
     {
       "id": 3,
-      "name": "Super Kitara 2",
-      "description": "mnogo hubavo",
-      "price": 500,
-      "category": "6 String",
-      "image": "/src/assets/guitar4.png",
-      "reviews": [
-        {
-          "reviewerUsername": "Anonymous",
-          "reviewId": 0.7369480249615595,
-          "content": "mn ubavo",
-          "rating": "1"
-        }
-      ]
+      "name": "Majesty 7",
+      "description": "The Majesty is the exemplification of everything a John Petrucci signature model should be be - innovative technology, versatile performance, and a sleek modern feel.",
+      "price": 5575,
+      "category": "7 String",
+      "image": "/src/assets/maj7string.png",
+      "reviews": []
     },
     {
       "id": 4,
-      "name": "Super Kitara 3",
-      "description": "mnogo hubavo",
-      "price": 600,
-      "category": "6 String",
-      "image": "/src/assets/guitar4.png",
+      "name": "Juggernaut ET6",
+      "description": "The Juggernaut is a sleek and rather futuristic design, with its slim body and upper and lower horns crafted to provide easy upper-fret access. The body has been sculpted and contoured with ergonomics in mind and it proves a very comfortable ride when strapped on, while its basswood construction is in common with most Juggernaut models in the Pro Series.",
+      "price": 1449,
+      "category": "Electric",
+      "image": "/src/assets/mishaGuitar.png",
       "reviews": [
         {
-          "reviewerUsername": "Anonymous",
-          "reviewId": 0.7369480249615595,
-          "content": "mn ubavo",
-          "rating": "1"
+          "reviewerUsername": "Misha",
+          "reviewId": 0.1369480269615595,
+          "content": "Djent",
+          "rating": "99"
         }
       ]
     },
     {
       "id": 5,
-      "name": "Mnogo Hubava Kitara",
-      "description": "mnogo hubavo",
-      "price": 900,
-      "category": "7 String",
-      "image": "/src/assets/mishaGuitar.png",
+      "name": "Squier Stratocaster",
+      "description": "A superb gateway into the time-honored Fender® family, the Squier® Affinity Series® Stratocaster® delivers legendary design and quintessential tone for today’s aspiring guitar hero. This Strat® features several player-friendly refinements such as a thin and lightweight body, a slim and comfortable “C”-shaped neck profile, a 2-point tremolo bridge for superior tremolo action and sealed die-cast tuning machines with split shafts for smooth, accurate tuning and easy restringing. ",
+      "price": 250,
+      "category": "Electric",
+      "image": "/src/assets/guitar4.png",
       "reviews": [
         {
           "reviewerUsername": "Anonymous",
-          "reviewId": 0.7369480249615595,
-          "content": "mn ubavo",
-          "rating": "1"
+          "reviewId": 0.5369280249615595,
+          "content": "Good starting guitar",
+          "rating": "50"
         }
       ]
     },
     {
       "id": 6,
-      "name": "Mnogo Hubava Kitara 2",
-      "description": "mnogo hubavo",
-      "price": 7100,
-      "category": "7 String",
-      "image": "/src/assets/guitar4.png",
+      "name": "Fender CC-60S",
+      "description": "Compact and comfortable, the CC-60S is ideal for beginning players. The smaller concert-sized body is easy to maneuver in any playing position, with an articulate voice that's great for fingerpicking. Its tuneful solid spruce top, easy-to-play neck, and mahogany back and sides make the CC-60S a perfect choice for the beach, the patio or the coffeehouse.",
+      "price": 1600,
+      "category": "Acoustic",
+      "image": "/src/assets/fenderCC60S.png",
+      "reviews": []
+    },
+    {
+      "id": 7,
+      "name": "Taylor K24ce",
+      "description": "The K24ce showcases the tonal richness and visual character of koa in a Grand Auditorium body that's both accommodating and musically versatile. Back, sides and top of solid koa deliver a punchy voice with a strong midrange response with clear trebles and a touch of extra presence in the low range, and V-Class bracing dials up more volume and longer sustain.",
+      "price": 6000,
+      "category": "Acoustic",
+      "image": "/src/assets/taylor.png",
       "reviews": [
         {
-          "reviewerUsername": "Anonymous",
-          "reviewId": 0.7369480249615595,
-          "content": "mn ubavo",
+          "reviewerUsername": "LudKitarist",
+          "reviewId": 0.2369480249615595,
+          "content": "Beautiful guitar!",
+          "rating": "42"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Ibanez RGMS8",
+      "description": "The Ibanez RGMS8 Multi-scale 8-string guitar's distinctive fretboard and compensated pickup and hardware configuration give you outstanding playing comfort and great intonation all the way up the fast, super-slim neck. The nyatoh body's warm tone also serves up plenty of cut and sustain. And the RGMS8's Mono-rail bridge lets each string vibrate independently, while a pair of Ibanez Array 8 MS humbuckers delivers the amp-punishing punch you demand. A lot of guitars can play metal, but the Ibanez Iron Label RGMS8 8-string guitar was born for it.",
+      "price": 700,
+      "category": "8 String",
+      "image": "/src/assets/ibanez8string.png",
+      "reviews": [
+        {
+          "reviewerUsername": "DropETuning",
+          "reviewId": 0.8369480249615595,
+          "content": "Low tunings man",
+          "rating": "1"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Dingwall NG3-6",
+      "description": "The Dingwall NG3 is Adam “Nolly” Getgood signature model. The bass player from djent/prog metal super group, Periphery. There is a lot of things that make Dingwall stand out compared to other bass companies. Their unique looks, lightweight build and super-fast neck are some of them, but their most unique quality is definitely their dedication to fanned frets.",
+      "price": 2300,
+      "category": "Bass",
+      "image": "/src/assets/dingwallNG36.png",
+      "reviews": [
+        {
+          "reviewerUsername": "Davie504",
+          "reviewId": 0.7369489249615595,
+          "content": "slap",
           "rating": "1"
         }
       ]
@@ -136,42 +144,39 @@
       "password": "admin123",
       "email": "a@m",
       "role": "admin",
-      "cart": [
-        {
-          "productId": 2,
-          "quantity": 3
-        }
-      ]
+      "cart": []
     },
     {
       "id": 0.1624112205543985,
       "name": "test",
-      "email": "tt",
+      "email": "test@email",
       "password": "test",
       "role": "user",
-      "cart": [
-        {
-          "productId": 3,
-          "quantity": 2
-        }
-      ]
+      "cart": []
     },
     {
       "id": 0.3125913496251872,
-      "name": "aetjaetjaetjaetkhaet",
+      "name": "user1",
       "email": "123",
       "password": "123",
       "role": "user",
-      "cart": [
-        {
-          "productId": 2,
-          "quantity": 8
-        },
-        {
-          "productId": 4,
-          "quantity": 6
-        }
-      ]
+      "cart": []
+    },
+    {
+      "id": 0.43785670513159425,
+      "name": "test3",
+      "email": "test3@email",
+      "password": "testpass3",
+      "role": "user",
+      "cart": []
+    },
+    {
+      "id": 0.0455287614289942,
+      "name": "test4",
+      "email": "test4@email",
+      "password": "pass4",
+      "role": "user",
+      "cart": []
     }
   ]
 }
