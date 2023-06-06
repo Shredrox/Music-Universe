@@ -19,7 +19,7 @@ export function ProductsShowcase({products}){
           items: 2,
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
+          breakpoint: { max: 800, min: 0 },
           items: 1,
         }
       };
@@ -28,7 +28,9 @@ export function ProductsShowcase({products}){
         <div>
             <div className="productsSliderSection">
               <div className="product-slider">
+                <h3>Featured Products</h3>
                 <Carousel 
+                  draggable={false}
                   containerClass="carousel"
                   responsive={responsive}
                   slidesToSlide={1}
