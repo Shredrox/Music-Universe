@@ -44,7 +44,7 @@ export function RegisterForm({changeForm, closeForm}){
        email: email,
        password: password,
        role: "user",
-       isActive: true
+       cart: []
       };
     
       const result = await fetch(`http://localhost:5000/users`, {
