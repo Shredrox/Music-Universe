@@ -1611,6 +1611,14 @@ li{
         align-items: center;
     }
 
+    .product-description{
+        height: 280px;
+    }
+
+    .product-page-product{
+        height: 400px;
+    }
+
     .product-details-section{
         width: 75%;
     }
