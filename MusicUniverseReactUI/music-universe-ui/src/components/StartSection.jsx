@@ -24,11 +24,7 @@ export function StartSection(){
                         A pair of Jackson MM1 humbuckers delivers all the hot 
                         humbucking growl and grime you expect and are controlled 
                         with master volume and tone controls, plus a 5-way blade 
-                        switch. A push-pull (on/off) pot on the tone control 
-                        adds further to this electric guitar’s sonic versatility. 
-                        A 1-piece caramelized maple neck, with a 20"-radius 
-                        caramelized maple fingerboard and 24 jumbo frets is fast, 
-                        playable, and comfortable.
+                        switch.
                     </p>
                 </div>
             </div>
