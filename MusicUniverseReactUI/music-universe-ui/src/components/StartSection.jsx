@@ -1,5 +1,4 @@
 import React from "react";
-import homeImage from '../assets/homeBackground.png';
 import featuredProductImage from '../assets/mishaGuitar.png';
 
 export function StartSection(){
