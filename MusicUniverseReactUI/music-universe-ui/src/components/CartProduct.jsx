@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-export const CartProduct = ({productId, product, productQuantity, toggleCart, updateUser}) => {
+export function CartProduct({productId, product, productQuantity, toggleCart, updateUser}){
   const [quantity, setQuantity] = useState(productQuantity);
 
   async function changeQuantity(sign){

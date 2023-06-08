@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ReviewCard } from '../components/ReviewCard';
 import { useNavigate } from "react-router-dom";
 
-export const ProductPage = ({toggleCart, onAdd}) => {
+export function ProductPage({toggleCart, onAdd}){
   const [content, setContent] = useState('');
   const [rating, setRating] = useState('');
   const [reviews, setReviews] = useState([]);

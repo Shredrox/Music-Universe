@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export const ProductEditPage = () => {
+export function ProductEditPage(){
     const [product, setProduct] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export const SearchBar = ({setFilteredProducts}) => {
+export function SearchBar({setFilteredProducts}){
     const [input, setInput] = useState("");
     const [products, setProducts] = useState([]);
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export const OrderPage = ({products}) => {
+export function OrderPage({products}){
     const [totalPrice, setTotalPrice] = useState(0);
     const [orderFormVisible, setOrderFormVisible] = useState(true);
     const [name, setName] = useState('');

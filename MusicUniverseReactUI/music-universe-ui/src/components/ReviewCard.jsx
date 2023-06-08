@@ -1,7 +1,7 @@
 import React from 'react'
 import userIcon from '../assets/userIcon1.png'
 
-export const ReviewCard = ({review}) => {
+export function ReviewCard({review}){
 
   return (
     <div className='review-card'>
