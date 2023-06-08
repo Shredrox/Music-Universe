@@ -91,7 +91,7 @@ export function OrderPage({products}){
                 </div>
             </div>
             )
-            : <label className='order-finish-text'>Order Placed. <br/> Thanks for the money bro</label>
+            : <label className='order-finish-text'>Order Placed. <br/> Thanks for shopping!</label>
             }
         </div>
     )
