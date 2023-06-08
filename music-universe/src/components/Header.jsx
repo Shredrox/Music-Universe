@@ -60,7 +60,6 @@ export function Header({setLoggedInUser, user}){
         localStorage.clear();
         setButtonsVisible(true);
         window.location.reload();
-        //setLoggedInUser({});
     }
 
     return(

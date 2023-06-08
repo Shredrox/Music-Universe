@@ -19,8 +19,6 @@ export function CartProduct({productId, product, productQuantity, toggleCart, up
       return;
     }
 
-    console.log(newQuantity);
-
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
     if(user === null || user === undefined){
       return;
@@ -35,7 +33,6 @@ export function CartProduct({productId, product, productQuantity, toggleCart, up
 
     const updatedUser = {...user, cart: updatedCart};
 
-    console.log(updatedUser);
     const result = await fetch(`http://localhost:5000/users/${user.id}`, {
       method: "PUT", 
       headers: {
