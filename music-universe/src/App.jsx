@@ -86,11 +86,9 @@ function App() {
       body: JSON.stringify(updatedProduct)
     });
 
-    const data = await result.json();
-
     const updatedProducts = products.map((product) => {
       if (product.id === id) {
-        return { ...product, inCart: data.inCart };
+        return { ...product, reviews: updatedProduct.reviews };
       }
       return product;
     });
